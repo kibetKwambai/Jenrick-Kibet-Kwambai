@@ -118,6 +118,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
             </p>
             <p className="font-body text-sm leading-relaxed text-slate-700">{PROFILE_INFO.softwareBio}</p>
             <p className="font-body text-sm leading-relaxed text-slate-700">{PROFILE_INFO.researcherBio}</p>
+            <p className="font-body text-sm leading-relaxed text-slate-700">{PROFILE_INFO.qualificationBio}</p>
           </div>
 
           {/* Key Metric Highlights */}

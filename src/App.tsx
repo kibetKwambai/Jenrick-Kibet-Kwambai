@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
+import { ProfessionalSummary } from './components/ProfessionalSummary';
 import { Hero } from './components/Hero';
 import { MetricsBento } from './components/MetricsBento';
 import { ExperienceTimeline } from './components/ExperienceTimeline';
@@ -70,6 +71,8 @@ export default function App() {
           onOpenResume={() => setResumeModalOpen(true)}
           onOpenCommandPalette={() => setCommandPaletteOpen(true)}
         />
+
+        <ProfessionalSummary />
 
         {/* Operational Performance & Domains */}
         <MetricsBento />

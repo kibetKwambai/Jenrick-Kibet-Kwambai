@@ -7,9 +7,7 @@ import {
   Github, 
   FileText, 
   Phone,
-  Mail,
-  ShieldCheck,
-  Award
+  Mail
 } from 'lucide-react';
 import { PROFILE_INFO } from '../data/profileData';
 
@@ -29,7 +27,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact, onOpenResume }) => {
   };
 
   return (
-    <section id="overview" className="pt-32 sm:pt-40 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 max-w-[102.4rem] mx-auto">
+    <section id="overview" className="pt-28 sm:pt-32 pb-12 sm:pb-14 px-4 sm:px-6 lg:px-8 max-w-[102.4rem] mx-auto">
       <div className="space-y-7">
         {/* Top institutional badges */}
         <div className="flex flex-wrap items-center gap-2.5">
@@ -37,14 +35,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact, onOpenResume }) => {
             <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
             Kasas Aviation Ltd • Nairobi, Kenya
           </span>
-          <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700 font-sans text-xs font-medium">
-            <ShieldCheck className="w-3.5 h-3.5 text-blue-700" />
-            KCAA & ICAO Doc 9625 Certified FSTDs
-          </span>
-          <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-900 font-sans text-xs font-medium">
-            <Award className="w-3.5 h-3.5 text-amber-700" />
-            BSc Aeronautical Engineering
-          </span>
+
         </div>
 
         {/* Executive Headline in Outfit font */}
@@ -53,23 +44,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact, onOpenResume }) => {
             Jenrick Kibet Kwambai
           </h1>
           <p className="font-sans text-lg sm:text-xl font-medium text-slate-700 max-w-3xl leading-relaxed">
-            Aeronautical Systems Engineer & Project Manager specializing in Flight Simulation Training Devices (FSTD), Autonomous UAV Avionics, and Fleet Airworthiness. Academic & Professional Researcher.
+            Aerospace & FSTD Engineer · Software Developer · Researcher
           </p>
         </div>
 
-        {/* Editorial bio in Lato font */}
-        <div className="font-body text-base text-slate-700 max-w-3xl leading-relaxed space-y-3.5">
-          <p>
-            Directing Level D / FSTD maintenance lifecycles and Qualification Test Guide (QTG) validation for commercial aviation platforms at <strong className="font-bold text-slate-900">Kasas Aviation Ltd</strong> and <strong className="font-bold text-slate-900">Think Aviation Ltd</strong>, supporting Cessna Grand Caravan 208B, Cessna 172 Skyhawk, and Dornier 228 devices.
-          </p>
-          <p className="text-sm text-slate-600 leading-normal">
-            Prior engineering track record includes military jet turbine overhauls with the <strong className="font-semibold text-slate-800">Kenya Defense Forces (DEFTEC)</strong>, aircraft maintenance with the <strong className="font-semibold text-slate-800">Kenya Police Airwing</strong> at Wilson Airport (AW139, AW119Kx, Bell 206), and autonomous UAV airframe and telemetry engineering (JFK Drone).
-          </p>
-        </div>
-
-        <p className="font-body text-sm text-slate-600 max-w-3xl leading-relaxed">{PROFILE_INFO.softwareBio}</p>
-
-        <p className="font-body text-sm text-slate-600 max-w-3xl leading-relaxed">{PROFILE_INFO.researcherBio}</p>
+        <p className="font-body text-base text-slate-600 max-w-3xl leading-relaxed">Flight simulation, aviation technical documentation, autonomous UAVs, and software systems.</p>
 
         {/* Action Group */}
         <div className="pt-2 flex flex-wrap items-center gap-3">

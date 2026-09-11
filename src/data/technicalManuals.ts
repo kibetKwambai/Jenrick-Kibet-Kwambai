@@ -1,5 +1,10 @@
 export const TECHNICAL_MANUALS = [
   {
+    title: 'EASA CS-FSTD(A)/(H) Checklists',
+    description: 'Developed checklists for EASA CS-FSTD(A)/(H), covering Issue 1 and Issue 2.',
+    platforms: ['CS-FSTD(A)', 'CS-FSTD(H)', 'Issue 1', 'Issue 2']
+  },
+  {
     "title": "Qualification Test Guides (QTGs)",
     "description": "Development of QTGs for flight simulation training devices.",
     "platforms": [
