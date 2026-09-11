@@ -14,7 +14,7 @@ export const PROFILE_INFO = {
   phone: "+254(0)70-602-7215",
   phoneRaw: "+254706027215",
   linkedinUrl: "https://www.linkedin.com/in/jenrickkibet/",
-  githubUrl: "https://github.com/jenrickkibet",
+  githubUrl: "https://github.com/kibetKwambai",
   availability: "Open to Aviation, Aerospace, Drone & Technical Leadership Roles",
   timezone: "East Africa Time (UTC+3)",
   stats: [
@@ -753,7 +753,7 @@ export const PROJECTS: ProjectItem[] = [
       { label: "Speedup", value: "40% Query Reduction" }
     ],
     technologies: ["Python", "AWS", "Azure", "Raspberry Pi", "PLCs / PACs", "SCORM / xAPIs", "SQL"],
-    githubUrl: "https://github.com/jenrickkibet",
+    githubUrl: "https://github.com/kibetKwambai",
     status: "Production"
   }
 ];
