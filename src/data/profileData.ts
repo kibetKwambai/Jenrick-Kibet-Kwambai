@@ -3,7 +3,7 @@ import { ExperienceItem, PublicationItem, ProjectItem, SkillCategory, EducationI
 export const PROFILE_INFO = {
   name: "Jenrick Kibet Kwambai",
   displayName: "Jenrick Kibet Kwambai",
-  headline: "FSTD & Aerospace Systems Engineer • Flight Simulator Lead • Autonomous Drone Architect • Academic & Professional Researcher",
+  headline: "Aerospace, System, FSTD Engineer & Software Engineer • Flight Simulator Lead • Autonomous Drone Architect • Academic & Professional Researcher",
   shortBio: "Specializing in certified Flight Simulation Training Devices (FSTD), aircraft avionics maintenance, autonomous UAV flight control systems, and full-stack software & data engineering.",
   about: "FSTD & Aerospace Systems Engineer with hands-on leadership maintaining mission-critical Flight Simulation Training Devices (FSTDs) across Cessna Grand Caravan 208B, C172, and Dornier 228 platforms—achieving sustained 99%+ operational uptime. Extensive background spanning Kenya Defense Forces (DEFTEC) military jet & helicopter systems, Kenya Police Airwing fleet maintenance, autonomous drone design (the JFK Surveillance Drone), and full-stack software development with AWS/Azure data infrastructure.",
   qualificationBio: "I have developed EASA CS-FSTD(A)/(H) Issue 1 and Issue 2 checklists and participated in FSTD qualification and approval activities.",
