@@ -16,7 +16,7 @@ export const PublicationsSection: React.FC<PublicationsSectionProps> = ({ onSele
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
-  const categories = ['All', 'Aviation & FSTD', 'UAV & Drones', 'Software & Systems'];
+  const categories = ['All', 'Space & Satellites', 'Aviation & FSTD', 'UAV & Drones', 'Software & Systems'];
 
   const filteredPublications = PUBLICATIONS.filter((pub) => {
     const matchesCat = selectedCategory === 'All' || pub.category === selectedCategory;
@@ -39,7 +39,7 @@ export const PublicationsSection: React.FC<PublicationsSectionProps> = ({ onSele
             Technical Publications & Research
           </h2>
           <p className="font-body text-sm sm:text-base text-slate-600 mt-2 max-w-2xl leading-relaxed">
-            Documented methodologies, empirical flight controller test data, flight simulator reliability protocols, and edge cloud telemetry architectures.
+            Research on communication satellite systems, Dornier 228 maintenance and overhaul, and the JFK Watcher surveillance drone and autonomous charging station, alongside technical briefs.
           </p>
         </div>
 
@@ -87,10 +87,9 @@ export const PublicationsSection: React.FC<PublicationsSectionProps> = ({ onSele
             <div className="space-y-2 max-w-3xl">
               <div className="flex items-center gap-2 font-mono text-xs text-slate-500">
                 <span className="font-semibold text-blue-800">{pub.category}</span>
-                <span>•</span>
-                <span>{pub.date}</span>
-                <span>•</span>
-                <span>{pub.readTime}</span>
+                {[pub.kind, pub.date, pub.readTime].filter(Boolean).map((value, index) => (
+                  <React.Fragment key={index}><span>•</span><span>{value}</span></React.Fragment>
+                ))}
               </div>
 
               <h3 className="font-heading text-base sm:text-lg font-bold text-slate-900 group-hover:text-blue-700 transition-colors leading-snug">

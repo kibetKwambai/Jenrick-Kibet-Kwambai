@@ -8,7 +8,7 @@ import {
   FileText, 
   Phone
 } from 'lucide-react';
-import { PROFILE_INFO, EXPERIENCES, PUBLICATIONS, EDUCATION_LIST, CERTIFICATIONS, REFERENCES } from '../data/profileData';
+import { PROFILE_INFO, EXPERIENCES, PUBLICATIONS, EDUCATION_LIST, CERTIFICATIONS } from '../data/profileData';
 
 interface ResumeModalProps {
   isOpen: boolean;
@@ -114,6 +114,8 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
             <p className="font-body text-sm leading-relaxed text-slate-700">
               {PROFILE_INFO.about}
             </p>
+            <p className="font-body text-sm leading-relaxed text-slate-700">{PROFILE_INFO.softwareBio}</p>
+            <p className="font-body text-sm leading-relaxed text-slate-700">{PROFILE_INFO.researcherBio}</p>
           </div>
 
           {/* Key Metric Highlights */}
@@ -186,14 +188,13 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
               {PUBLICATIONS.map((pub) => (
                 <div key={pub.id} className="text-xs space-y-0.5">
                   <div className="font-heading font-bold text-slate-900">
-                    "{pub.title}" ({pub.date})
+                    "{pub.title}"{pub.date ? ` (${pub.date})` : ''}
                   </div>
                   <div className="font-body text-slate-600">
                     {pub.summary}
                   </div>
-                  <div className="text-[11px] font-mono text-slate-500">
-                    Ref: {pub.doiOrRef}
-                  </div>
+                  {pub.doiOrRef && <div className="text-[11px] font-mono text-slate-500">Ref: {pub.doiOrRef}</div>}
+                  {pub.externalLink && <a href={pub.externalLink} target="_blank" rel="noopener noreferrer" className="text-blue-700 underline">View on Google Scholar</a>}
                 </div>
               ))}
             </div>
@@ -226,22 +227,8 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
             </div>
           </div>
 
-          {/* Professional References */}
-          <div className="pt-4 border-t border-slate-200 space-y-3">
-            <h2 className="font-sans text-xs uppercase tracking-wider font-bold text-blue-800">
-              Professional References
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-              {REFERENCES.map((ref) => (
-                <div key={ref.id} className="p-3 rounded-xl bg-slate-50 border border-slate-200">
-                  <div className="font-heading font-bold text-slate-900">{ref.name}</div>
-                  <div className="font-sans text-slate-600">{ref.role} — {ref.organization}</div>
-                  <div className="text-slate-500 font-mono text-[11px] mt-1">
-                    {ref.phone} • {ref.email}
-                  </div>
-                </div>
-              ))}
-            </div>
+          <div className="pt-4 border-t border-slate-200">
+            <p className="font-body text-xs text-slate-600">References available upon request.</p>
           </div>
         </div>
       </div>

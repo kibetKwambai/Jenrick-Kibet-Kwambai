@@ -94,7 +94,7 @@ export default function App() {
         {/* Academic Degrees & Certifications */}
         <CertificationsEducation />
 
-        {/* Verified Professional References */}
+        {/* References available upon request */}
         <ReferencesSection />
       </main>
 

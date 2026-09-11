@@ -53,7 +53,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact, onOpenResume }) => {
             Jenrick Kibet Kwambai
           </h1>
           <p className="font-sans text-lg sm:text-xl font-medium text-slate-700 max-w-3xl leading-relaxed">
-            Aeronautical Systems Engineer & Project Manager specializing in Flight Simulation Training Devices (FSTD), Autonomous UAV Avionics, and Fleet Airworthiness.
+            Aeronautical Systems Engineer & Project Manager specializing in Flight Simulation Training Devices (FSTD), Autonomous UAV Avionics, and Fleet Airworthiness. Academic & Professional Researcher.
           </p>
         </div>
 
@@ -66,6 +66,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact, onOpenResume }) => {
             Prior engineering track record includes military jet turbine overhauls with the <strong className="font-semibold text-slate-800">Kenya Defense Forces (DEFTEC)</strong>, aircraft maintenance with the <strong className="font-semibold text-slate-800">Kenya Police Airwing</strong> at Wilson Airport (AW139, AW119Kx, Bell 206), and autonomous UAV airframe and telemetry engineering (JFK Drone).
           </p>
         </div>
+
+        <p className="font-body text-sm text-slate-600 max-w-3xl leading-relaxed">{PROFILE_INFO.softwareBio}</p>
+
+        <p className="font-body text-sm text-slate-600 max-w-3xl leading-relaxed">{PROFILE_INFO.researcherBio}</p>
 
         {/* Action Group */}
         <div className="pt-2 flex flex-wrap items-center gap-3">

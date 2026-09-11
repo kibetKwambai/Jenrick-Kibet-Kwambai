@@ -33,7 +33,9 @@ export const PublicationModal: React.FC<PublicationModalProps> = ({ publication,
 
   if (!publication) return null;
 
-  const citationText = `Kibet, J. (${publication.date}). "${publication.title}". Technical Brief & Case Study [Ref: ${publication.doiOrRef || 'KASAS-TECH'}]. Kasas Aviation Ltd / Nairobi, Kenya.`;
+  const citationText = publication.kind === 'Research paper'
+    ? `Jenrick Kibet Kwambai. ${publication.title}.${publication.externalLink ? ` ${publication.externalLink}` : ''}`
+    : `Kibet, J. (${publication.date}). "${publication.title}". Technical Brief & Case Study [Ref: ${publication.doiOrRef || 'KASAS-TECH'}]. Kasas Aviation Ltd / Nairobi, Kenya.`;
 
   const handleCopyCitation = () => {
     navigator.clipboard.writeText(citationText);
@@ -55,9 +57,7 @@ export const PublicationModal: React.FC<PublicationModalProps> = ({ publication,
             <span className="px-2.5 py-0.5 rounded-full font-sans text-xs font-semibold bg-blue-50 text-blue-800 border border-blue-200">
               {publication.category}
             </span>
-            <span className="font-mono text-xs text-slate-500">
-              Ref: {publication.doiOrRef}
-            </span>
+            {publication.doiOrRef && <span className="font-mono text-xs text-slate-500">Ref: {publication.doiOrRef}</span>}
           </div>
 
           <button
@@ -74,16 +74,9 @@ export const PublicationModal: React.FC<PublicationModalProps> = ({ publication,
           {/* Header Metadata */}
           <div>
             <div className="flex items-center gap-3 text-xs text-slate-500 mb-2 font-mono">
-              <span className="flex items-center gap-1">
-                <Calendar className="w-3.5 h-3.5" />
-                {publication.date}
-              </span>
-              <span>•</span>
-              <span className="flex items-center gap-1">
-                <Clock className="w-3.5 h-3.5" />
-                {publication.readTime}
-              </span>
-              <span>•</span>
+              {[publication.kind, publication.date, publication.readTime].filter(Boolean).map((value, index) => (
+                <React.Fragment key={index}><span>{value}</span><span>•</span></React.Fragment>
+              ))}
               <span>Author: Jenrick Kibet</span>
             </div>
 
@@ -95,7 +88,7 @@ export const PublicationModal: React.FC<PublicationModalProps> = ({ publication,
           {/* Abstract callout */}
           <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200">
             <h4 className="font-sans text-xs uppercase tracking-wider text-blue-800 font-bold mb-2">
-              Executive Abstract
+              {publication.kind === 'Research paper' ? 'Research Overview' : 'Executive Abstract'}
             </h4>
             <p className="font-body text-sm text-slate-700 leading-relaxed font-normal">
               {publication.abstract}
@@ -119,7 +112,7 @@ export const PublicationModal: React.FC<PublicationModalProps> = ({ publication,
           </div>
 
           {/* Key Takeaways */}
-          <div className="p-5 rounded-2xl bg-emerald-50 border border-emerald-200 space-y-3">
+          {publication.keyTakeaways.length > 0 && <div className="p-5 rounded-2xl bg-emerald-50 border border-emerald-200 space-y-3">
             <h4 className="font-sans text-xs uppercase tracking-wider text-emerald-900 font-bold">
               Key Engineering Insights & Takeaways
             </h4>
@@ -131,7 +124,7 @@ export const PublicationModal: React.FC<PublicationModalProps> = ({ publication,
                 </div>
               ))}
             </div>
-          </div>
+          </div>}
 
           {/* Tags */}
           <div className="pt-4 border-t border-slate-200 flex flex-wrap gap-1.5">
@@ -160,11 +153,17 @@ export const PublicationModal: React.FC<PublicationModalProps> = ({ publication,
             ) : (
               <>
                 <Copy className="w-3.5 h-3.5 text-slate-500" />
-                <span>Copy APA Citation</span>
+                <span>{publication.kind === 'Research paper' ? 'Copy Reference' : 'Copy APA Citation'}</span>
               </>
             )}
           </button>
 
+          {publication.externalLink && (
+            <a href={publication.externalLink} target="_blank" rel="noopener noreferrer"
+              className="px-4 py-2 rounded-full font-sans text-xs font-semibold text-blue-800 bg-blue-50 border border-blue-200 hover:bg-blue-100">
+              View on Google Scholar
+            </a>
+          )}
           <button
             onClick={onClose}
             className="px-5 py-2 rounded-full font-sans text-xs font-semibold bg-slate-900 text-white hover:bg-blue-700 transition-colors cursor-pointer"

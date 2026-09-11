@@ -32,7 +32,7 @@ export const ProjectsShowcase: React.FC<ProjectsShowcaseProps> = ({ onSelectProj
             Featured Projects & Systems
           </h2>
           <p className="font-body text-sm sm:text-base text-slate-600 mt-2 max-w-2xl leading-relaxed">
-            From autonomous airframes and Pixhawk autopilots to real-time flight simulation telemetry suites and full-stack software applications.
+            Aviation software and X-Plane integrations, WordPress plugins, AI website connectivity, autonomous UAVs, and flight simulation systems.
           </p>
         </div>
 
@@ -105,7 +105,7 @@ export const ProjectsShowcase: React.FC<ProjectsShowcaseProps> = ({ onSelectProj
               </div>
 
               <span className="font-sans text-xs font-semibold text-blue-700 group-hover:text-blue-900 transition-colors">
-                View Architecture
+                View Project
               </span>
             </div>
           </div>

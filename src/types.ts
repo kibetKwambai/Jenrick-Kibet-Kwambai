@@ -17,9 +17,10 @@ export interface ExperienceItem {
 export interface PublicationItem {
   id: string;
   title: string;
-  category: 'Aviation & FSTD' | 'UAV & Drones' | 'Software & Systems' | 'Industry Insights';
-  date: string;
-  readTime: string;
+  category: 'Aviation & FSTD' | 'UAV & Drones' | 'Software & Systems' | 'Industry Insights' | 'Space & Satellites';
+  kind?: 'Research paper';
+  date?: string;
+  readTime?: string;
   summary: string;
   abstract: string;
   doiOrRef?: string;
@@ -45,7 +46,7 @@ export interface ProjectItem {
   technologies: string[];
   githubUrl?: string;
   liveUrl?: string;
-  status: 'Active' | 'Operational' | 'Production' | 'Completed';
+  status: 'Active' | 'Operational' | 'Production' | 'Completed' | 'Developed';
 }
 
 export interface SkillCategory {

@@ -1,11 +1,13 @@
-import { ExperienceItem, PublicationItem, ProjectItem, SkillCategory, EducationItem, CertificationItem, ReferenceItem } from '../types';
+import { ExperienceItem, PublicationItem, ProjectItem, SkillCategory, EducationItem, CertificationItem } from '../types';
 
 export const PROFILE_INFO = {
   name: "Jenrick Kibet Kwambai",
   displayName: "Jenrick Kibet Kwambai",
-  headline: "FSTD & Aerospace Systems Engineer • Flight Simulator Lead • Autonomous Drone Architect",
+  headline: "FSTD & Aerospace Systems Engineer • Flight Simulator Lead • Autonomous Drone Architect • Academic & Professional Researcher",
   shortBio: "Specializing in certified Flight Simulation Training Devices (FSTD), aircraft avionics maintenance, autonomous UAV flight control systems, and full-stack software & data engineering.",
   about: "FSTD & Aerospace Systems Engineer with hands-on leadership maintaining mission-critical Flight Simulation Training Devices (FSTDs) across Cessna Grand Caravan 208B, C172, and Dornier 228 platforms—achieving sustained 99%+ operational uptime. Extensive background spanning Kenya Defense Forces (DEFTEC) military jet & helicopter systems, Kenya Police Airwing fleet maintenance, autonomous drone design (the JFK Surveillance Drone), and full-stack software development with AWS/Azure data infrastructure.",
+  researcherBio: "I am an academic and professional researcher, with published work on communication satellite system design, Dornier 228 maintenance and overhaul, and the JFK Watcher surveillance and communication drone and autonomous charging station.",
+  softwareBio: "I develop aviation apps and software, including SkyLink for X-Plane integration with ForeFlight, Garmin, and other pilot platforms. My WordPress plugins include Jenlink Timetable, JenVibe MCP for connecting AI assistants to websites, and Optipress for page and image optimization.",
   location: "Nairobi, Kenya",
   currentRole: "Project Manager & Flight Simulator Operations Lead",
   currentCompany: "Kasas Aviation Ltd. & Think Aviation Ltd.",
@@ -489,50 +491,56 @@ export const CERTIFICATIONS: CertificationItem[] = [
   }
 ];
 
-export const REFERENCES: ReferenceItem[] = [
-  {
-    id: "dr-mwongera",
-    name: "Dr. Victor Mwenda Mwongera",
-    role: "Chairman, Department of Mechanical and Aerospace Engineering",
-    organization: "Kenyatta University",
-    location: "Nairobi, Kenya",
-    phone: "+254703969132",
-    email: "mwongera.victor@ku.ac.ke",
-    relationship: "Academic Department Chairman & Aerospace Engineering Advisor"
-  },
-  {
-    id: "patrick-anderson",
-    name: "Patrick Anderson II",
-    role: "Chief Executive Officer (CEO)",
-    organization: "RotoCop LLC",
-    location: "Atlanta, Georgia, USA",
-    phone: "+1 (470) 473-1672",
-    email: "patrickandersonii@protonmail.com",
-    relationship: "Executive Director & Supervisor (Lead Drone Engineer & Wireless Charging R&D)"
-  },
-  {
-    id: "leakey-wambua",
-    name: "Mr. Leakey Wambua",
-    role: "Interns Coordinator",
-    organization: "Kenya Police Service, Airwing",
-    location: "Wilson Airport, Nairobi, Kenya",
-    phone: "+254720759629",
-    email: "airborneviki@gmail.com",
-    relationship: "Supervising Engineering Coordinator (Airframe & Avionics Engineering)"
-  },
-  {
-    id: "james-mosii",
-    name: "Eng. James Mosii",
-    role: "Aerospace Lecturer & Examination Coordinator",
-    organization: "Kenyatta University",
-    location: "Nairobi, Kenya",
-    phone: "+254715330706",
-    email: "mosiijames@gmail.com",
-    relationship: "Aerospace Faculty Lecturer & Research Mentor"
-  }
-];
-
 export const PUBLICATIONS: PublicationItem[] = [
+{
+  "id": "communication-satellite-system-design",
+  "title": "Communication Satellite System Design Program Proposal For Degree Program in Aerospace Engineering",
+  "category": "Space & Satellites",
+  "summary": "Published research on a communication satellite system design proposal for an aerospace engineering degree program.",
+  "tags": [
+    "Communication Satellites",
+    "System Design",
+    "Aerospace Engineering"
+  ],
+  "externalLink": "https://scholar.google.com/scholar?cluster=4912551976235047662&hl=en&oi=scholarr",
+  "kind": "Research paper",
+  "abstract": "Published research on a communication satellite system design proposal for an aerospace engineering degree program.",
+  "sections": [],
+  "keyTakeaways": []
+},
+{
+  "id": "dornier-228-maintenance-overhaul",
+  "title": "Maintenance and Overhaul: Review and Analysis of Dornier 228 Maintenance Procedures, Intervals, and Costs",
+  "category": "Aviation & FSTD",
+  "summary": "Published research reviewing and analyzing Dornier 228 maintenance procedures, maintenance intervals, and costs.",
+  "tags": [
+    "Dornier 228",
+    "Maintenance",
+    "Overhaul",
+    "Maintenance Costs"
+  ],
+  "kind": "Research paper",
+  "abstract": "Published research reviewing and analyzing Dornier 228 maintenance procedures, maintenance intervals, and costs.",
+  "sections": [],
+  "keyTakeaways": []
+},
+{
+  "id": "jfk-watcher-surveillance-charging",
+  "title": "Design of Quadcopter (JFK Watcher Drone) for Surveillance and Communication and Autonomous Charging Station",
+  "category": "UAV & Drones",
+  "summary": "Published research on the design of the JFK Watcher quadcopter for surveillance and communication, together with an autonomous charging station.",
+  "tags": [
+    "JFK Watcher",
+    "Quadcopter",
+    "Surveillance",
+    "Communication",
+    "Autonomous Charging"
+  ],
+  "kind": "Research paper",
+  "abstract": "Published research on the design of the JFK Watcher quadcopter for surveillance and communication, together with an autonomous charging station.",
+  "sections": [],
+  "keyTakeaways": []
+},
   {
     id: "fstd-reliability-paper",
     title: "Flight Simulation Training Device (FSTD) Reliability & Maintenance Engineering in Sub-Saharan Aviation",
@@ -669,6 +677,121 @@ export const PUBLICATIONS: PublicationItem[] = [
 ];
 
 export const PROJECTS: ProjectItem[] = [
+{
+  "id": "skylink-xplane",
+  "title": "SkyLink X-Plane Plugin",
+  "category": "Avionics Tooling",
+  "subtitle": "Aviation Software for Pilots",
+  "description": "Developed SkyLink, an X-Plane plugin connecting the simulator with ForeFlight, Garmin, and other aviation platforms for pilots.",
+  "imageAlt": "SkyLink X-Plane aviation platform integration",
+  "highlights": [
+    "Connects X-Plane with ForeFlight, Garmin, and other aviation platforms.",
+    "Developed to support pilots using aviation software alongside flight simulation."
+  ],
+  "specs": [
+    {
+      "label": "Simulator",
+      "value": "X-Plane"
+    },
+    {
+      "label": "Integrations",
+      "value": "ForeFlight, Garmin & other aviation platforms"
+    }
+  ],
+  "technologies": [
+    "X-Plane",
+    "ForeFlight",
+    "Garmin",
+    "Plugin Development"
+  ],
+  "status": "Developed"
+},
+{
+  "id": "jenlink-timetable",
+  "title": "Jenlink Timetable",
+  "category": "Software & Web",
+  "subtitle": "WordPress Timetable Plugin",
+  "description": "Developed Jenlink Timetable, a WordPress plugin for website timetables.",
+  "imageAlt": "Jenlink Timetable WordPress plugin",
+  "highlights": [
+    "Timetable functionality for WordPress websites.",
+    "Custom plugin development for website owners."
+  ],
+  "specs": [
+    {
+      "label": "Platform",
+      "value": "WordPress"
+    },
+    {
+      "label": "Purpose",
+      "value": "Timetables"
+    }
+  ],
+  "technologies": [
+    "WordPress",
+    "Plugin Development",
+    "Timetables"
+  ],
+  "status": "Developed"
+},
+{
+  "id": "jenvibe-mcp",
+  "title": "JenVibe MCP Plugin",
+  "category": "Software & Web",
+  "subtitle": "AI-to-Website Connectivity",
+  "description": "Developed JenVibe MCP, a WordPress plugin that connects AI assistants to websites through the Model Context Protocol (MCP).",
+  "imageAlt": "JenVibe MCP AI website integration plugin",
+  "highlights": [
+    "Connects AI assistants to websites.",
+    "Uses the Model Context Protocol (MCP) for AI integration."
+  ],
+  "specs": [
+    {
+      "label": "Platform",
+      "value": "WordPress"
+    },
+    {
+      "label": "Integration",
+      "value": "Model Context Protocol (MCP)"
+    }
+  ],
+  "technologies": [
+    "WordPress",
+    "MCP",
+    "AI Integration",
+    "Plugin Development"
+  ],
+  "status": "Developed"
+},
+{
+  "id": "optipress",
+  "title": "Optipress",
+  "category": "Software & Web",
+  "subtitle": "WordPress Page & Image Optimization",
+  "description": "Developed Optipress, a WordPress plugin for optimizing website pages and images.",
+  "imageAlt": "Optipress WordPress optimization plugin",
+  "highlights": [
+    "Page optimization for WordPress websites.",
+    "Image optimization as part of website performance improvement."
+  ],
+  "specs": [
+    {
+      "label": "Platform",
+      "value": "WordPress"
+    },
+    {
+      "label": "Focus",
+      "value": "Page & image optimization"
+    }
+  ],
+  "technologies": [
+    "WordPress",
+    "Page Optimization",
+    "Image Optimization",
+    "Plugin Development"
+  ],
+  "status": "Developed"
+},
   {
     id: "fstd-modernization",
     title: "FSTD Simulator Fleet Modernization",
