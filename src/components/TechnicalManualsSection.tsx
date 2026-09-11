@@ -1,4 +1,5 @@
 import React from 'react';
+import { ComplianceArchitecture } from './ComplianceArchitecture';
 import { ValidationDataSection } from './ValidationDataSection';
 import { BookOpen } from 'lucide-react';
 import { PROFILE_INFO } from '../data/profileData';
@@ -13,7 +14,8 @@ export const TechnicalManualsSection: React.FC = () => (
       <h3 className="font-heading font-bold text-slate-900">FSTD Qualification & Approval Participation</h3>
       <p className="font-body text-sm text-slate-700 mt-2">{PROFILE_INFO.qualificationBio}</p>
     </div>
-    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mt-8">
+    <ComplianceArchitecture />
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
       {TECHNICAL_MANUALS.map(manual => (
         <article key={manual.title} className="min-w-0 bg-white rounded-2xl p-6 sm:p-7 border border-slate-200 shadow-sm">
           <BookOpen className="w-5 h-5 text-blue-700 mb-4" aria-hidden="true" />
@@ -22,10 +24,9 @@ export const TechnicalManualsSection: React.FC = () => (
           <ul className="flex flex-wrap gap-2 mt-5" aria-label="Platforms and scope">
             {manual.platforms.map(platform => <li key={platform} className="text-xs font-mono bg-slate-100 text-slate-700 rounded-md px-2.5 py-1.5">{platform}</li>)}
           </ul>
-          <div className="mt-5 space-y-3 border-t border-slate-100 pt-4">{manual.details.map(detail => <p key={detail} className="text-sm leading-relaxed text-slate-600">{detail}</p>)}</div>
+          <details className="mt-5 border-t border-slate-100 pt-4"><summary className="cursor-pointer text-sm font-semibold text-blue-700 py-2">View more specifications — {manual.title}</summary><div className="mt-4 space-y-3">{manual.details.map(detail => <p key={detail} className="text-sm leading-relaxed text-slate-600">{detail}</p>)}</div>{manual.title.includes("(QTGs)") && <ValidationDataSection />}</details>
         </article>
       ))}
     </div>
-    <ValidationDataSection />
   </section>
 );

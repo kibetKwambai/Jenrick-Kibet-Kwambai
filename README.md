@@ -6,7 +6,9 @@ FSTD & aerospace systems engineering, autonomous UAVs, and full-stack software d
 
 **[Visit my live website](https://kibetkwambai.github.io/Jenrick-Kibet-Kwambai/)**
 
-Explore my experience, projects, publications, skills, and contact details.
+Explore my experience, projects, publications, skills, and technical manuals.
+
+[Request a Call](https://kibetkwambai.github.io/Jenrick-Kibet-Kwambai/#overview) — open the live profile and select Request a Call to introduce yourself for review.
 
 [GitHub](https://github.com/kibetKwambai) · [LinkedIn](https://www.linkedin.com/in/jenrickkibet/)
 

@@ -104,7 +104,7 @@ export default function App() {
         <CertificationsEducation />
 
         {/* References available upon request */}
-        <ReferencesSection />
+        <ReferencesSection onOpenContact={() => setContactModalOpen(true)} />
       </main>
 
       {/* Footer */}

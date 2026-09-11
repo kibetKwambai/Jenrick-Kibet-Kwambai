@@ -54,7 +54,7 @@ export const Footer: React.FC<{onOpenContact:()=>void}> = ({onOpenContact}) => {
           <div className="text-xs font-mono text-slate-500 flex items-center gap-3 pt-1">
             <span>Local Time: {nairobiTime || 'UTC+3'}</span>
             <span>•</span>
-            <button onClick={onOpenContact} className="text-blue-700 hover:text-blue-900 font-semibold">Request a Call</button>
+            <a href="https://kibetkwambai.github.io/Jenrick-Kibet-Kwambai/#overview" onClick={e => { e.preventDefault(); window.history.replaceState(null, "", "#overview"); onOpenContact(); }} className="text-blue-700 hover:text-blue-900 font-semibold">Request a Call</a>
           </div>
         </div>
 

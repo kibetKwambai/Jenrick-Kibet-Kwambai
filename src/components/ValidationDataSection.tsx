@@ -1,27 +1,22 @@
 import React from 'react';
-
 const terms = [
-  ['VSR / VDR', 'Validation Data Roadmap', 'VSR is the label used in my documentation; EASA guidance uses VDR. The roadmap identifies the source and applicability of the data used for qualification tests, including aircraft, engine, and avionics configuration.'],
-  ['VSD', 'Validation Data Source', 'The source evidence used to validate simulator behaviour. EASA describes this as Validation Source Data. The documentation identifies the dataset, its origin, and the aircraft configuration it represents.'],
-  ['AESD', 'Approved Engineering Simulation Data', 'Engineering simulation data accepted for the applicable qualification purpose. Its supporting records explain its provenance, scope, and relationship to the represented aircraft and test.'],
-  ['VDP', 'Validation Data Packs', 'The organised collection of validation evidence used for the device and its qualification work. A useful pack preserves the connection between each test, its source data, and any applicable engineering-simulation data.'],
-  ['OSD', 'Operational Suitability Data', 'The operational-suitability context associated with an aircraft type. Relevant simulator data and training information help connect the represented aircraft configuration to its intended training use.']
+  ['VSD — Validation Source Data','Aircraft reference evidence, including ground tests, flight tests and engineering data. Identify its origin, revision and represented configuration before selecting reference data for a QTG test.'],
+  ['VDR — Validation Data Roadmap','Maps each test to suitable data and explains configuration applicability and gaps. VSR is the label used in my earlier documentation for this roadmap.'],
+  ['AESD — Approved Engineering Simulation Data','My documentation label for engineering simulation evidence accepted for the relevant purpose. Record the supporting validation and acceptance scope; simulated results alone do not establish approval.'],
+  ['VDP — Validation Data Packs','My organised evidence package: source records, applicable engineering evidence, the roadmap and revision references. VDP = VSD + AESD is my packaging shorthand; engineering data can already form part of VSD, so this is not a regulatory equation.'],
+  ['OSD — Operational Suitability Data','Where applicable, the aircraft OSD establishes validation-data context for the QTG. Keep the data applicable to the represented aircraft and intended qualification basis.']
 ];
-
-export const ValidationDataSection: React.FC = () => (
-  <div className="mt-12 rounded-2xl bg-slate-900 text-white p-6 sm:p-9">
-    <p className="text-sm font-mono uppercase tracking-widest text-blue-300">Validation Evidence & Traceability</p>
-    <h3 className="font-heading text-2xl sm:text-3xl font-bold mt-2">From source data to qualification evidence</h3>
-    <div className="mt-6 border-y border-white/15 py-6">
-      <p className="font-mono text-2xl sm:text-4xl tracking-tight break-words">VDP = VSD + AESD</p>
-      <p className="text-base text-slate-300 mt-3 max-w-3xl leading-relaxed">My documentation model combines the identified validation source with approved engineering simulation data where applicable. The roadmap records how the evidence relates to the device configuration and qualification tests.</p>
-    </div>
-    <dl className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-7 mt-7">
-      {terms.map(([term,title,description])=><div key={term}><dt className="font-semibold text-lg"><span className="font-mono text-blue-300">{term}</span><span className="block mt-1">{title}</span></dt><dd className="text-base text-slate-300 leading-relaxed mt-3">{description}</dd></div>)}
-    </dl>
-    <div className="flex flex-wrap gap-4 text-sm mt-8 pt-5 border-t border-white/15">
-      <a href="https://www.easa.europa.eu/en/downloads/135964/en" target="_blank" rel="noopener noreferrer" className="text-blue-200 underline underline-offset-4">EASA: validation source data and the roadmap</a>
-      <a href="https://www.easa.europa.eu/en/document-library/easy-access-rules/online-publications/suitability-data-osd-flight-crew-data-cs-fcd?page=3" target="_blank" rel="noopener noreferrer" className="text-blue-200 underline underline-offset-4">EASA: Operational Suitability Data</a>
-    </div>
-  </div>
-);
+export const ValidationDataSection:React.FC=()=> <div className="mt-6 rounded-xl bg-slate-50 border border-slate-200 p-5 sm:p-6">
+  <h4 className="font-heading text-xl font-bold text-slate-900">QTG development, validation data & qualification review</h4>
+  <p className="text-sm text-slate-600 leading-relaxed mt-3">My documentation work covers C172S, C208 G1000 NXi and Do228 TPE-331-05-252 devices. Each package connects the represented configuration with test procedures, evidence and review records.</p>
+  <dl className="space-y-5 mt-5">{terms.map(([title,body])=><div key={title}><dt className="font-semibold text-slate-900">{title}</dt><dd className="text-sm leading-relaxed text-slate-600 mt-1">{body}</dd></div>)}</dl>
+  <h5 className="font-bold text-slate-900 mt-6">How the evidence becomes a qualification record</h5>
+  <ol className="list-decimal pl-5 space-y-3 text-sm leading-relaxed text-slate-600 mt-3">
+    <li>Define the device configuration and applicable qualification basis; select the relevant source data through the VDR.</li>
+    <li>Prepare QTG conditions, procedures and comparisons between FSTD results and reference data, using the applicable tolerances.</li>
+    <li>Present the QTG and supporting evidence for evaluation, alongside functions and subjective tests. Resolve findings and preserve the reviewed revisions.</li>
+    <li>Following successful evaluation and qualification, the QTG becomes the Master QTG (MQTG), providing a reference for continuing qualification work.</li>
+  </ol>
+  <p className="mt-5 text-sm leading-relaxed text-slate-600">I participate in documentation preparation and qualification activities. The competent authority determines qualification; a data pack or completed checklist does not itself grant approval. The applicable basis must be confirmed for each device.</p>
+  <div className="mt-5 space-y-2 text-sm"><a className="block text-blue-700 underline" href="https://www.easa.europa.eu/en/downloads/135963/en" target="_blank" rel="noopener noreferrer">EASA CS-SIMD Issue 2: source data to MQTG</a><a className="block text-blue-700 underline" href="https://www.easa.europa.eu/sites/default/files/dfu/CS-FSTD%28A%29%20%E2%80%94%20Issue%202.pdf" target="_blank" rel="noopener noreferrer">EASA CS-FSTD(A) Issue 2: QTG and validation guidance</a></div>
+</div>;

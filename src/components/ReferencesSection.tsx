@@ -1,7 +1,12 @@
 import React from 'react';
-
-export const ReferencesSection: React.FC = () => (
-  <section id="references" className="py-8 px-4 sm:px-6 lg:px-8 max-w-[102.4rem] mx-auto border-t border-slate-200">
-    <p className="font-body text-sm text-slate-600">References available upon request.</p>
-  </section>
-);
+import {GraduationCap,FileCheck,MessageSquare} from 'lucide-react';
+export const ReferencesSection:React.FC<{onOpenContact?:()=>void}>=({onOpenContact})=> <section id="references" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-[102.4rem] mx-auto border-t border-slate-200">
+  <p className="text-xs uppercase tracking-widest font-bold text-blue-700">Academic & Professional Researcher</p>
+  <h2 className="font-heading text-2xl sm:text-3xl font-bold text-slate-900 mt-2">Institutional Endorsements & References</h2>
+  <p className="mt-4 text-base leading-relaxed text-slate-600 max-w-3xl">My work connects academic investigation with practical engineering, aviation and software development. References available upon request.</p>
+  <div className="grid md:grid-cols-3 gap-6 mt-8">
+    <article className="rounded-2xl border border-slate-200 bg-white p-6"><GraduationCap className="text-blue-700 w-6 h-6"/><h3 className="font-heading font-bold text-lg mt-4">Research & scholarly work</h3><p className="text-sm leading-relaxed text-slate-600 mt-2">Research interests include communication satellite system design, Dornier 228 maintenance analysis, and autonomous UAV surveillance, communication and charging systems.</p><a href="#publications" className="inline-block mt-4 font-semibold text-sm text-blue-700">Explore research & publications →</a></article>
+    <article className="rounded-2xl border border-slate-200 bg-white p-6"><FileCheck className="text-blue-700 w-6 h-6"/><h3 className="font-heading font-bold text-lg mt-4">Professional reference enquiries</h3><p className="text-sm leading-relaxed text-slate-600 mt-2">For an employment, academic or project reference, identify the role or work you would like to discuss. Relevant reference arrangements and any available institutional documentation can then be considered privately.</p><p className="text-sm leading-relaxed text-slate-600 mt-3">Referee names, direct contacts and endorsement letters are shared only with appropriate permission.</p></article>
+    <article className="rounded-2xl border border-slate-200 bg-blue-50 p-6"><MessageSquare className="text-blue-700 w-6 h-6"/><h3 className="font-heading font-bold text-lg mt-4">Research & technical collaboration</h3><p className="text-sm leading-relaxed text-slate-600 mt-2">Introduce your institution or organisation, the proposed topic and the intended outcome. Enquiries may relate to aerospace research, FSTD documentation, engineering training or software development.</p><button onClick={onOpenContact} className="mt-5 px-4 py-2.5 rounded-lg bg-blue-700 text-white font-semibold text-sm">Request references / discuss collaboration</button></article>
+  </div>
+</section>;

@@ -64,7 +64,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact, onOpenResume }) => {
             <span>Curriculum Vitae</span>
           </button>
 
-          <button onClick={onOpenContact} className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-white border border-slate-200 text-sm font-semibold text-slate-700 hover:border-blue-400"><Phone className="w-4 h-4 text-blue-700" />Request a Call</button>
+          <a href="https://kibetkwambai.github.io/Jenrick-Kibet-Kwambai/#overview" onClick={e => { e.preventDefault(); window.history.replaceState(null, "", "#overview"); onOpenContact(); }} className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-white border border-slate-200 text-sm font-semibold text-slate-700 hover:border-blue-400"><Phone className="w-4 h-4 text-blue-700" />Request a Call</a>
 
           <button
             id="hero-copy-email-pill"

@@ -15,7 +15,7 @@ export const ProfessionalSummary: React.FC = () => (
         <p className="font-body text-sm text-slate-600 mt-2 leading-relaxed">{PROFILE_INFO.softwareBio}</p>
       </article>
       <article>
-        <h3 className="font-heading text-lg font-bold text-slate-900">Academic & Professional Research</h3>
+        <h3 className="font-heading text-lg font-bold text-slate-900">Academic & Professional Researcher</h3>
         <p className="font-body text-sm text-slate-600 mt-2 leading-relaxed">{PROFILE_INFO.researcherBio}</p>
       </article>
       <article>
