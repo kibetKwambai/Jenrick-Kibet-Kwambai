@@ -8,7 +8,7 @@ import { EDUCATION_LIST, CERTIFICATIONS } from '../data/profileData';
 
 export const CertificationsEducation: React.FC = () => {
   return (
-    <section id="education" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto border-t border-slate-200">
+    <section id="education" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-[102.4rem] mx-auto border-t border-slate-200">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Education Column */}
         <div>

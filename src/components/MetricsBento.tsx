@@ -56,7 +56,7 @@ export const MetricsBento: React.FC = () => {
   ];
 
   return (
-    <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto border-t border-slate-200">
+    <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-[102.4rem] mx-auto border-t border-slate-200">
       {/* Metric Ledger */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 pb-12 border-b border-slate-200">
         {metrics.map((m, idx) => (

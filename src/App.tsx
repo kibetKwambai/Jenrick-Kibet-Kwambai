@@ -8,6 +8,7 @@ import { ProjectsShowcase } from './components/ProjectsShowcase';
 import { SkillsMatrix } from './components/SkillsMatrix';
 import { CertificationsEducation } from './components/CertificationsEducation';
 import { ReferencesSection } from './components/ReferencesSection';
+import { TechnicalManualsSection } from './components/TechnicalManualsSection';
 import { Footer } from './components/Footer';
 import { PublicationModal } from './components/PublicationModal';
 import { ExperienceModal } from './components/ExperienceModal';
@@ -77,6 +78,8 @@ export default function App() {
         <ExperienceTimeline
           onSelectExperience={(exp) => setSelectedExperience(exp)}
         />
+
+        <TechnicalManualsSection />
 
         {/* Publications & Research Case Studies */}
         <PublicationsSection

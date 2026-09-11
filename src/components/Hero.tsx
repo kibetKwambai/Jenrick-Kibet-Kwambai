@@ -29,7 +29,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact, onOpenResume }) => {
   };
 
   return (
-    <section id="overview" className="pt-32 sm:pt-40 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+    <section id="overview" className="pt-32 sm:pt-40 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 max-w-[102.4rem] mx-auto">
       <div className="space-y-7">
         {/* Top institutional badges */}
         <div className="flex flex-wrap items-center gap-2.5">

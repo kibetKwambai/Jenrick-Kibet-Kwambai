@@ -10,6 +10,8 @@ import {
 } from 'lucide-react';
 import { PROFILE_INFO, EXPERIENCES, PUBLICATIONS, EDUCATION_LIST, CERTIFICATIONS } from '../data/profileData';
 
+import { TECHNICAL_MANUALS } from '../data/technicalManuals';
+
 interface ResumeModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -177,6 +179,17 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
               ))}
             </div>
           </div>
+
+          <section className="space-y-3">
+            <h2 className="font-sans text-xs uppercase tracking-wider font-bold text-blue-800">Engineering & Aviation Technical Manual Development</h2>
+            {TECHNICAL_MANUALS.map(manual => (
+              <div key={manual.title} className="text-xs space-y-1">
+                <h3 className="font-heading font-bold text-slate-900">{manual.title}</h3>
+                <p className="text-slate-600">{manual.description}</p>
+                <p className="text-slate-600">{manual.platforms.join(' • ')}</p>
+              </div>
+            ))}
+          </section>
 
           {/* Publications */}
           <div className="space-y-3">

@@ -37,7 +37,7 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className="border-t border-slate-200 bg-white py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+      <div className="max-w-[102.4rem] mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
         {/* Left identity */}
         <div className="space-y-1.5 max-w-md">
           <div className="flex items-center gap-2.5">
@@ -77,8 +77,8 @@ export const Footer: React.FC = () => {
           <a href="#skills" className="hover:text-slate-950 transition-colors">
             Skills
           </a>
-          <a href="#references" className="hover:text-slate-950 transition-colors">
-            References
+          <a href="#technical-manuals" className="hover:text-slate-950 transition-colors">
+            Technical Manuals
           </a>
         </div>
 
@@ -120,7 +120,7 @@ export const Footer: React.FC = () => {
         </div>
       </div>
 
-      <div className="max-w-5xl mx-auto mt-8 pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500 gap-2 font-sans">
+      <div className="max-w-[102.4rem] mx-auto mt-8 pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500 gap-2 font-sans">
         <div>
           © {new Date().getFullYear()} Jenrick Kibet Kwambai. All rights reserved.
         </div>

@@ -38,7 +38,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     { label: 'Publications', href: '#publications' },
     { label: 'Projects', href: '#projects' },
     { label: 'Skills', href: '#skills' },
-    { label: 'References', href: '#references' },
+    { label: 'Manuals', href: '#technical-manuals' },
   ];
 
   const handleNavClick = (href: string) => {
@@ -52,7 +52,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   return (
     <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-200 px-4 sm:px-6 lg:px-8 pt-3 sm:pt-4">
       <div 
-        className={`max-w-5xl mx-auto rounded-full transition-all duration-200 border ${
+        className={`max-w-[102.4rem] mx-auto rounded-full transition-all duration-200 border ${
           scrolled 
             ? 'bg-white/95 backdrop-blur-md border-slate-200 shadow-sm py-2.5 px-4 sm:px-6' 
             : 'bg-white/90 backdrop-blur-sm border-slate-200/80 py-3 px-5 sm:px-7 shadow-[0_2px_8px_rgba(15,23,42,0.03)]'
