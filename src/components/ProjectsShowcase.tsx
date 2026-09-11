@@ -56,11 +56,15 @@ export const ProjectsShowcase: React.FC<ProjectsShowcaseProps> = ({ onSelectProj
       </div>
 
       {/* Projects Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
         {filteredProjects.map((proj) => (
           <div
             key={proj.id}
             id={`project-card-${proj.id}`}
+            role="button"
+            tabIndex={0}
+            aria-label={`View project: ${proj.title}`}
+            onKeyDown={event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); onSelectProject(proj); } }}
             onClick={() => onSelectProject(proj)}
             className="group bg-white rounded-2xl p-6 sm:p-7 border border-slate-200/90 shadow-[0_2px_8px_rgba(15,23,42,0.03)] hover:border-blue-300 hover:shadow-[0_8px_20px_rgba(15,23,42,0.06)] transition-all cursor-pointer flex flex-col justify-between"
           >

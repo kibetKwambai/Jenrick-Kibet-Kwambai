@@ -1,261 +1,33 @@
-import React, { useState, useEffect } from 'react';
-import { 
-  X, 
-  Linkedin, 
-  Github, 
-  Copy, 
-  Check, 
-  Send, 
-  MapPin, 
-  Radio, 
-  Phone, 
-  ArrowUpRight
-} from 'lucide-react';
-import { PROFILE_INFO } from '../data/profileData';
-
-interface ContactModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
-
-export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
-  const [copiedEmail, setCopiedEmail] = useState(false);
-  const [copiedPhone, setCopiedPhone] = useState(false);
-  const [subjectTopic, setSubjectTopic] = useState('Flight Simulator / Aviation Systems');
-  const [senderName, setSenderName] = useState('');
-  const [senderMessage, setSenderMessage] = useState('');
-
-  const topics = [
-    'Flight Simulator (FSTD) Operations / KCAA Compliance',
-    'Autonomous Drone & UAV Architecture (JFK Drone)',
-    'Full-Stack Software, Big Data & Telemetry (AWS/Azure)',
-    'Permanent Leadership / Executive Systems Role',
-    'Consulting & General Inquiry'
-  ];
-
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
-    };
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-      window.addEventListener('keydown', handleKeyDown);
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [isOpen, onClose]);
-
-  if (!isOpen) return null;
-
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText(PROFILE_INFO.email);
-    setCopiedEmail(true);
-    setTimeout(() => setCopiedEmail(false), 2200);
+import React, {useState} from 'react';
+import {X,ArrowUpRight,Mail} from 'lucide-react';
+import {PROFILE_INFO} from '../data/profileData';
+import {useDialogFocus} from './useDialogFocus';
+export const ContactModal:React.FC<{isOpen:boolean;onClose:()=>void}>=({isOpen,onClose})=>{
+  const [name,setName]=useState(''),[email,setEmail]=useState(''),[organisation,setOrganisation]=useState(''),[reason,setReason]=useState(''),[availability,setAvailability]=useState('');
+  const [topic,setTopic]=useState('Request a Call'),[draftOpened,setDraftOpened]=useState(false);
+  const ref=useDialogFocus(isOpen,onClose);
+  if(!isOpen)return null;
+  const submit=(event:React.FormEvent<HTMLFormElement>)=>{
+    event.preventDefault();if(!name.trim()||!reason.trim())return;
+    const subject=encodeURIComponent(`${topic} — ${name.trim()}`);
+    const body=encodeURIComponent(`Hello Jenrick,\n\n${reason.trim()}\n\nName: ${name.trim()}\nEmail: ${email.trim()}\nOrganisation: ${organisation.trim()||'Not supplied'}\nPreferred availability and time zone: ${availability.trim()||'To be agreed'}\n\nPlease review my details and reply by email to discuss the next steps.`);
+    window.location.href=`mailto:${PROFILE_INFO.email}?subject=${subject}&body=${body}`;setDraftOpened(true);
   };
-
-  const handleCopyPhone = () => {
-    navigator.clipboard.writeText(PROFILE_INFO.phone);
-    setCopiedPhone(true);
-    setTimeout(() => setCopiedPhone(false), 2200);
-  };
-
-  const handleSendEmail = (e: React.FormEvent) => {
-    e.preventDefault();
-    const subject = encodeURIComponent(`[${subjectTopic}] Inquiry from ${senderName || 'Colleague'}`);
-    const body = encodeURIComponent(
-      `Hello Jenrick,\n\n${senderMessage || 'I would like to connect regarding an opportunity or engineering project.'}\n\nBest regards,\n${senderName || 'A Partner'}`
-    );
-    window.location.href = `mailto:${PROFILE_INFO.email}?subject=${subject}&body=${body}`;
-  };
-
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 lg:p-8 bg-slate-900/50 backdrop-blur-sm animate-in fade-in duration-200">
-      <div 
-        className="bg-white w-full max-w-xl max-h-[92vh] rounded-3xl border border-slate-200 shadow-2xl flex flex-col overflow-hidden animate-in zoom-in-95 duration-200"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="modal-contact-title"
-      >
-        {/* Modal Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200 bg-slate-50/80 shrink-0">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse" />
-            <span className="font-sans text-xs font-semibold text-slate-800">
-              Direct Connection • Jenrick Kibet Kwambai
-            </span>
-          </div>
-          <button
-            onClick={onClose}
-            className="p-1.5 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-200/70 transition-colors cursor-pointer"
-            aria-label="Close contact modal"
-          >
-            <X className="w-5 h-5" />
-          </button>
-        </div>
-
-        {/* Scrollable Content */}
-        <div className="p-6 sm:p-8 overflow-y-auto space-y-6">
-          <div>
-            <h2 id="modal-contact-title" className="font-heading text-2xl font-bold tracking-tight text-slate-900">
-              Contact Jenrick Kibet Kwambai
-            </h2>
-            <p className="font-body text-sm text-slate-600 mt-1 leading-relaxed">
-              Reach out directly for flight simulation engineering, autonomous UAV architectures, or executive technical leadership.
-            </p>
-          </div>
-
-          {/* Quick Direct Actions Box */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {/* Direct Phone / Call Box */}
-            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col justify-between">
-              <div>
-                <span className="font-sans text-[10px] uppercase tracking-wider text-slate-500 font-bold">
-                  Mobile / Direct Telephone
-                </span>
-                <div className="text-sm font-bold text-slate-900 font-mono mt-1">
-                  {PROFILE_INFO.phone}
-                </div>
-              </div>
-              <div className="mt-3 flex items-center gap-3">
-                <a
-                  href={`tel:${PROFILE_INFO.phoneRaw}`}
-                  className="inline-flex items-center gap-1.5 font-sans text-xs font-semibold text-emerald-700 hover:underline cursor-pointer"
-                >
-                  <Phone className="w-3.5 h-3.5" />
-                  <span>Call Now</span>
-                </a>
-                <button
-                  onClick={handleCopyPhone}
-                  className="inline-flex items-center gap-1 font-sans text-xs text-slate-500 hover:text-slate-800 cursor-pointer"
-                >
-                  {copiedPhone ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3 h-3" />}
-                  <span>{copiedPhone ? 'Copied' : 'Copy'}</span>
-                </button>
-              </div>
-            </div>
-
-            {/* Email Box */}
-            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col justify-between">
-              <div>
-                <span className="font-sans text-[10px] uppercase tracking-wider text-slate-500 font-bold">
-                  Primary Email
-                </span>
-                <div className="text-xs font-semibold text-slate-900 font-mono mt-1 break-all">
-                  {PROFILE_INFO.email}
-                </div>
-              </div>
-              <button
-                onClick={handleCopyEmail}
-                className="mt-3 inline-flex items-center gap-1.5 font-sans text-xs font-semibold text-blue-700 hover:underline self-start cursor-pointer"
-              >
-                {copiedEmail ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5 text-slate-400" />}
-                <span>{copiedEmail ? 'Copied' : 'Copy address'}</span>
-              </button>
-            </div>
-          </div>
-
-          {/* Social & Professional Links */}
-          <div className="grid grid-cols-2 gap-3">
-            <a
-              href={PROFILE_INFO.linkedinUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between hover:border-slate-300 transition-colors"
-            >
-              <div className="flex items-center gap-2">
-                <Linkedin className="w-4 h-4 text-[#0A66C2]" />
-                <span className="font-sans text-xs font-semibold text-slate-800">LinkedIn Profile</span>
-              </div>
-              <ArrowUpRight className="w-3.5 h-3.5 text-slate-400" />
-            </a>
-
-            <a
-              href={PROFILE_INFO.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between hover:border-slate-300 transition-colors"
-            >
-              <div className="flex items-center gap-2">
-                <Github className="w-4 h-4 text-slate-800" />
-                <span className="font-sans text-xs font-semibold text-slate-800">GitHub Repos</span>
-              </div>
-              <ArrowUpRight className="w-3.5 h-3.5 text-slate-400" />
-            </a>
-          </div>
-
-          {/* Location & Timezone info */}
-          <div className="p-3.5 rounded-xl bg-slate-100/80 border border-slate-200 flex items-center justify-between text-xs text-slate-600 font-sans">
-            <span className="flex items-center gap-1.5">
-              <MapPin className="w-3.5 h-3.5 text-slate-400" />
-              Nairobi, Kenya • East Africa Time (UTC+3)
-            </span>
-            <span className="font-semibold text-emerald-700 flex items-center gap-1">
-              <Radio className="w-3 h-3" /> Ready to Engage
-            </span>
-          </div>
-
-          {/* Form / Direct Mailto Composer */}
-          <form onSubmit={handleSendEmail} className="space-y-4 pt-2">
-            <h3 className="font-sans text-xs uppercase tracking-wider text-slate-500 font-bold">
-              Draft Message to {PROFILE_INFO.email}
-            </h3>
-
-            {/* Topic Select */}
-            <div>
-              <label className="block font-sans text-xs font-semibold text-slate-700 mb-1">
-                Engineering Domain
-              </label>
-              <select
-                value={subjectTopic}
-                onChange={(e) => setSubjectTopic(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl font-sans text-xs bg-white border border-slate-300 text-slate-900 focus:outline-none focus:ring-1 focus:ring-blue-600 shadow-2xs"
-              >
-                {topics.map((t) => (
-                  <option key={t} value={t}>{t}</option>
-                ))}
-              </select>
-            </div>
-
-            {/* Name */}
-            <div>
-              <label className="block font-sans text-xs font-semibold text-slate-700 mb-1">
-                Your Name & Organization
-              </label>
-              <input
-                type="text"
-                placeholder="e.g. Chief Flight Instructor / Airline Operations"
-                value={senderName}
-                onChange={(e) => setSenderName(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl font-sans text-xs bg-white border border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-blue-600 shadow-2xs"
-              />
-            </div>
-
-            {/* Message */}
-            <div>
-              <label className="block font-sans text-xs font-semibold text-slate-700 mb-1">
-                Inquiry Brief
-              </label>
-              <textarea
-                rows={3}
-                placeholder="Details on flight simulation maintenance, UAV development specs, or interview schedule..."
-                value={senderMessage}
-                onChange={(e) => setSenderMessage(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl font-body text-xs bg-white border border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-blue-600 shadow-2xs"
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-full font-sans text-xs font-semibold bg-slate-900 text-white hover:bg-blue-700 shadow-xs transition-all cursor-pointer"
-            >
-              <Send className="w-3.5 h-3.5" />
-              <span>Launch Mail Client ({PROFILE_INFO.email})</span>
-            </button>
-          </form>
-        </div>
-      </div>
+  const field='w-full rounded-xl border border-slate-300 bg-white px-3.5 py-3 text-base text-slate-900 focus:border-blue-600 focus:outline-2 focus:outline-blue-200';
+  return <div className="fixed inset-0 z-[70] bg-slate-950/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6" onMouseDown={e=>{if(e.target===e.currentTarget)onClose();}}><div ref={ref} role="dialog" aria-modal="true" aria-labelledby="contact-title" className="bg-white w-full max-w-2xl max-h-[92dvh] rounded-2xl sm:rounded-3xl shadow-2xl flex flex-col overflow-hidden">
+    <div className="flex items-center justify-between gap-4 px-6 py-4 bg-slate-900 text-white shrink-0"><span className="text-sm font-mono tracking-wide">LET’S CONNECT</span><button onClick={onClose} aria-label="Close contact form" className="p-2 rounded-lg hover:bg-white/10"><X className="w-5 h-5"/></button></div>
+    <div className="p-6 sm:p-8 overflow-y-auto overscroll-contain"><h2 id="contact-title" className="font-heading text-3xl font-bold text-slate-900">Start a conversation</h2><p className="text-base text-slate-600 leading-relaxed mt-3">Introduce yourself and tell me what you have in mind. For a call, I review your details first and arrange the next steps by email.</p>
+      <form onSubmit={submit} className="space-y-5 mt-7">
+        <div><label htmlFor="request-topic" className="block text-sm font-semibold text-slate-700 mb-2">I would like to</label><select id="request-topic" className={field} value={topic} onChange={e=>{setTopic(e.target.value);setDraftOpened(false);}}>{['Request a Call','Discuss an Engineering Project','Discuss Software or Website Development','Discuss Research or Training','General Enquiry'].map(t=><option key={t}>{t}</option>)}</select></div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4"><div><label htmlFor="request-name" className="block text-sm font-semibold text-slate-700 mb-2">Full name *</label><input id="request-name" autoComplete="name" required minLength={2} maxLength={120} value={name} onChange={e=>setName(e.target.value)} className={field}/></div><div><label htmlFor="request-email" className="block text-sm font-semibold text-slate-700 mb-2">Email address *</label><input id="request-email" type="email" autoComplete="email" required maxLength={254} value={email} onChange={e=>setEmail(e.target.value)} className={field}/></div></div>
+        <div><label htmlFor="request-organisation" className="block text-sm font-semibold text-slate-700 mb-2">Organisation / professional profile</label><input id="request-organisation" autoComplete="organization" maxLength={300} value={organisation} onChange={e=>setOrganisation(e.target.value)} className={field} placeholder="Company, role, or professional profile link"/></div>
+        <div><label htmlFor="request-reason" className="block text-sm font-semibold text-slate-700 mb-2">Reason for your request *</label><textarea id="request-reason" required minLength={10} maxLength={3000} rows={4} value={reason} onChange={e=>setReason(e.target.value)} className={field} placeholder="Briefly describe the project, opportunity, or topic you would like to discuss."/></div>
+        {topic==='Request a Call'&&<div><label htmlFor="request-availability" className="block text-sm font-semibold text-slate-700 mb-2">Preferred availability & time zone</label><input id="request-availability" maxLength={200} value={availability} onChange={e=>setAvailability(e.target.value)} className={field} placeholder="For example: weekdays after 14:00 EAT"/></div>}
+        <p className="text-sm text-slate-500 leading-relaxed">This opens a prepared message in your email app. Send it there to submit your request. Your details are used to review and respond to your enquiry.</p>
+        <button type="submit" className="w-full flex items-center justify-center gap-2 rounded-xl bg-blue-700 hover:bg-blue-800 text-white text-base font-semibold px-5 py-3.5"><Mail className="h-5 w-5"/>Open Email Request</button>
+        {draftOpened&&<p role="status" className="rounded-xl bg-blue-50 border border-blue-100 p-4 text-sm text-blue-900">Your email draft has been requested. Complete and send it in your email app. If no app opened, email {PROFILE_INFO.email} with your name, email address, and reason for contacting me.</p>}
+      </form>
+      <div className="flex flex-wrap gap-5 text-sm font-semibold mt-7 pt-5 border-t border-slate-200"><a href={PROFILE_INFO.linkedinUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-blue-700">LinkedIn<ArrowUpRight className="h-4 w-4"/></a><a href={PROFILE_INFO.githubUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-slate-700">GitHub<ArrowUpRight className="h-4 w-4"/></a></div>
     </div>
-  );
+  </div></div>;
 };

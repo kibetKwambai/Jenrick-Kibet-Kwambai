@@ -8,7 +8,7 @@ import {
 } from 'lucide-react';
 import { PROFILE_INFO } from '../data/profileData';
 
-export const Footer: React.FC = () => {
+export const Footer: React.FC<{onOpenContact:()=>void}> = ({onOpenContact}) => {
   const [nairobiTime, setNairobiTime] = useState<string>('');
 
   useEffect(() => {
@@ -49,14 +49,12 @@ export const Footer: React.FC = () => {
             </span>
           </div>
           <p className="font-body text-xs text-slate-600">
-            Aeronautical & Flight Simulation Systems Engineer • Nairobi, Kenya
+            {PROFILE_INFO.headline}
           </p>
           <div className="text-xs font-mono text-slate-500 flex items-center gap-3 pt-1">
             <span>Local Time: {nairobiTime || 'UTC+3'}</span>
             <span>•</span>
-            <a href={`tel:${PROFILE_INFO.phoneRaw}`} className="text-blue-700 hover:text-blue-900 font-semibold">
-              {PROFILE_INFO.phone}
-            </a>
+            <button onClick={onOpenContact} className="text-blue-700 hover:text-blue-900 font-semibold">Request a Call</button>
           </div>
         </div>
 

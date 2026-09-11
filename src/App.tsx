@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { DigitalPlatformsSection } from './components/DigitalPlatformsSection';
+import { DIGITAL_PROJECTS } from './data/digitalPlatforms';
 import { Navbar } from './components/Navbar';
 import { ProfessionalSummary } from './components/ProfessionalSummary';
 import { Hero } from './components/Hero';
@@ -51,7 +53,7 @@ export default function App() {
   };
 
   const handleSelectProjectById = (id: string) => {
-    const found = PROJECTS.find((p) => p.id === id);
+    const found = [...PROJECTS, ...DIGITAL_PROJECTS].find((p) => p.id === id);
     if (found) setSelectedProject(found);
   };
 
@@ -95,6 +97,7 @@ export default function App() {
         />
 
         {/* Engineering Domains & Competencies */}
+        <DigitalPlatformsSection onSelectProject={setSelectedProject} />
         <SkillsMatrix />
 
         {/* Academic Degrees & Certifications */}
@@ -105,7 +108,7 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <Footer />
+      <Footer onOpenContact={() => setContactModalOpen(true)} />
 
       {/* Interactive Modals */}
       <PublicationModal

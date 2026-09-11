@@ -1,4 +1,5 @@
 import React from 'react';
+import { ValidationDataSection } from './ValidationDataSection';
 import { BookOpen } from 'lucide-react';
 import { PROFILE_INFO } from '../data/profileData';
 import { TECHNICAL_MANUALS } from '../data/technicalManuals';
@@ -21,8 +22,10 @@ export const TechnicalManualsSection: React.FC = () => (
           <ul className="flex flex-wrap gap-2 mt-5" aria-label="Platforms and scope">
             {manual.platforms.map(platform => <li key={platform} className="text-xs font-mono bg-slate-100 text-slate-700 rounded-md px-2.5 py-1.5">{platform}</li>)}
           </ul>
+          <div className="mt-5 space-y-3 border-t border-slate-100 pt-4">{manual.details.map(detail => <p key={detail} className="text-sm leading-relaxed text-slate-600">{detail}</p>)}</div>
         </article>
       ))}
     </div>
+    <ValidationDataSection />
   </section>
 );

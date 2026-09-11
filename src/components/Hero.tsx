@@ -7,6 +7,7 @@ import {
   Github, 
   FileText, 
   Phone,
+  MapPin,
   Mail
 } from 'lucide-react';
 import { PROFILE_INFO } from '../data/profileData';
@@ -27,24 +28,17 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact, onOpenResume }) => {
   };
 
   return (
-    <section id="overview" className="pt-28 sm:pt-32 pb-12 sm:pb-14 px-4 sm:px-6 lg:px-8 max-w-[102.4rem] mx-auto">
+    <section id="overview" className="pt-28 sm:pt-36 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8 max-w-[102.4rem] mx-auto">
       <div className="space-y-7">
-        {/* Top institutional badges */}
-        <div className="flex flex-wrap items-center gap-2.5">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-900 font-sans text-xs font-semibold">
-            <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
-            Kasas Aviation Ltd • Nairobi, Kenya
-          </span>
-
-        </div>
+        <span className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3 py-1.5 text-sm font-semibold text-blue-800"><MapPin className="h-4 w-4" aria-hidden="true" />World Wide</span>
 
         {/* Executive Headline in Outfit font */}
         <div className="space-y-3">
           <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.12]">
             Jenrick Kibet Kwambai
           </h1>
-          <p className="font-sans text-lg sm:text-xl font-medium text-slate-700 max-w-3xl leading-relaxed">
-            Aerospace & FSTD Engineer · Software Developer · Researcher
+          <p className="font-sans text-lg sm:text-xl font-medium text-slate-700 max-w-5xl leading-relaxed">
+            {PROFILE_INFO.headline}
           </p>
         </div>
 
@@ -70,14 +64,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact, onOpenResume }) => {
             <span>Curriculum Vitae</span>
           </button>
 
-          <a
-            id="hero-phone-pill"
-            href={`tel:${PROFILE_INFO.phoneRaw}`}
-            className="flex items-center gap-1.5 px-3.5 py-2.5 rounded-full font-mono text-xs font-semibold bg-white text-slate-800 border border-slate-200 hover:border-blue-400 hover:text-blue-800 transition-colors shadow-2xs"
-          >
-            <Phone className="w-3.5 h-3.5 text-emerald-600" />
-            <span>{PROFILE_INFO.phone}</span>
-          </a>
+          <button onClick={onOpenContact} className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-white border border-slate-200 text-sm font-semibold text-slate-700 hover:border-blue-400"><Phone className="w-4 h-4 text-blue-700" />Request a Call</button>
 
           <button
             id="hero-copy-email-pill"

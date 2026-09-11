@@ -4,6 +4,8 @@ import {
   Github, 
   CheckCircle2
 } from 'lucide-react';
+import { DossierContent } from './DossierContent';
+import { PROJECT_DOSSIERS } from '../data/projectDossiers';
 import { ProjectItem } from '../types';
 
 interface ProjectModalProps {
@@ -31,7 +33,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 lg:p-8 bg-slate-900/50 backdrop-blur-sm animate-in fade-in duration-200">
       <div 
-        className="bg-white w-full max-w-2xl max-h-[90vh] rounded-3xl border border-slate-200 shadow-2xl flex flex-col overflow-hidden animate-in zoom-in-95 duration-200"
+        className="bg-white w-full max-w-4xl max-h-[90vh] rounded-3xl border border-slate-200 shadow-2xl flex flex-col overflow-hidden animate-in zoom-in-95 duration-200"
         role="dialog"
         aria-modal="true"
         aria-labelledby="modal-project-title"
@@ -68,7 +70,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
           <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200">
             <h4 className="font-sans text-xs uppercase tracking-wider text-blue-800 font-bold mb-1.5">
-              System Architecture & Scope
+              Project Overview & Scope
             </h4>
             <p className="font-body text-sm text-slate-700 leading-relaxed">
               {project.description}
@@ -78,13 +80,13 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           {/* Specs */}
           <div className="space-y-2">
             <h3 className="font-sans text-xs uppercase tracking-wider text-slate-500 font-bold">
-              Engineering Specifications
+              Project Facts
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {project.specs.map((spec, idx) => (
-                <div key={idx} className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center text-xs">
+                <div key={idx} className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex flex-col gap-1 text-sm min-w-0">
                   <span className="font-sans text-slate-500 font-medium">{spec.label}</span>
-                  <span className="font-semibold font-mono text-slate-900">{spec.value}</span>
+                  <span className="font-semibold font-mono text-slate-900 break-words">{spec.value}</span>
                 </div>
               ))}
             </div>
@@ -93,7 +95,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           {/* Highlights */}
           <div className="space-y-2.5">
             <h3 className="font-sans text-xs uppercase tracking-wider text-slate-500 font-bold">
-              Technical Milestones & Capabilities
+              Scope & Capabilities
             </h3>
             <div className="space-y-2">
               {project.highlights.map((hl, idx) => (
@@ -104,6 +106,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               ))}
             </div>
           </div>
+
+          <DossierContent sections={PROJECT_DOSSIERS[project.id] ?? []} />
 
           {/* Tech stack */}
           <div className="space-y-2 pt-2 border-t border-slate-200">
@@ -125,7 +129,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
         {/* Footer */}
         <div className="px-6 py-4 border-t border-slate-200 bg-slate-50 flex items-center justify-between gap-3 shrink-0">
-          <div>
+          <div className="flex flex-wrap gap-4">
+            {project.liveUrl && <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center font-sans text-sm font-semibold text-blue-700 hover:underline">Visit Website ↗</a>}
             {project.githubUrl && (
               <a
                 href={project.githubUrl}

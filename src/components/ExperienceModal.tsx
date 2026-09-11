@@ -8,6 +8,8 @@ import {
   ShieldCheck, 
   Building2
 } from 'lucide-react';
+import { DossierContent } from './DossierContent';
+import { ROLE_DOSSIERS } from '../data/roleDossiers';
 import { ExperienceItem } from '../types';
 
 interface ExperienceModalProps {
@@ -35,7 +37,7 @@ export const ExperienceModal: React.FC<ExperienceModalProps> = ({ experience, on
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 lg:p-8 bg-slate-900/50 backdrop-blur-sm animate-in fade-in duration-200">
       <div 
-        className="bg-white w-full max-w-2xl max-h-[90vh] rounded-3xl border border-slate-200 shadow-2xl flex flex-col overflow-hidden animate-in zoom-in-95 duration-200"
+        className="bg-white w-full max-w-4xl max-h-[90vh] rounded-3xl border border-slate-200 shadow-2xl flex flex-col overflow-hidden animate-in zoom-in-95 duration-200"
         role="dialog"
         aria-modal="true"
         aria-labelledby="modal-experience-title"
@@ -72,7 +74,7 @@ export const ExperienceModal: React.FC<ExperienceModalProps> = ({ experience, on
                 </span>
               )}
             </div>
-            <div className="flex items-center gap-3 text-xs font-medium text-slate-600 font-sans">
+            <div className="flex flex-wrap items-center gap-3 text-sm font-medium text-slate-600 font-sans">
               <span className="font-bold text-slate-900 flex items-center gap-1">
                 <Building2 className="w-3.5 h-3.5 text-blue-700" />
                 {experience.company}
@@ -114,6 +116,8 @@ export const ExperienceModal: React.FC<ExperienceModalProps> = ({ experience, on
               ))}
             </div>
           </div>
+
+          <DossierContent sections={ROLE_DOSSIERS[experience.id] ?? []} />
 
           {/* Aircraft Platforms if any */}
           {experience.aircraftPlatforms && (

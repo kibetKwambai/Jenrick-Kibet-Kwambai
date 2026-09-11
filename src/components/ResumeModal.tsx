@@ -89,10 +89,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
             </div>
 
             <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-slate-600 font-mono">
-              <span className="flex items-center gap-1.5">
-                <Phone className="w-3.5 h-3.5 text-slate-400" />
-                {PROFILE_INFO.phone}
-              </span>
+              
               <span className="flex items-center gap-1.5">
                 <Mail className="w-3.5 h-3.5 text-slate-400" />
                 {PROFILE_INFO.email}

@@ -10,6 +10,7 @@ import {
   FileText, 
   ArrowRight
 } from 'lucide-react';
+import { DIGITAL_PROJECTS } from '../data/digitalPlatforms';
 import { EXPERIENCES, PUBLICATIONS, PROJECTS, SKILL_CATEGORIES, PROFILE_INFO } from '../data/profileData';
 
 interface CommandPaletteProps {
@@ -72,7 +73,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
   );
 
   // Search projects
-  const matchedProjects = PROJECTS.filter(proj => 
+  const matchedProjects = [...PROJECTS, ...DIGITAL_PROJECTS].filter(proj => 
     proj.title.toLowerCase().includes(normalizedQuery) ||
     proj.subtitle.toLowerCase().includes(normalizedQuery) ||
     proj.technologies.some(t => t.toLowerCase().includes(normalizedQuery))
@@ -144,17 +145,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
                 <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
               </button>
 
-              <a
-                href={`tel:${PROFILE_INFO.phoneRaw}`}
-                onClick={onClose}
-                className="w-full flex items-center justify-between p-3 rounded-xl hover:bg-slate-100 text-slate-700 transition-colors text-left cursor-pointer border border-transparent hover:border-slate-200"
-              >
-                <div className="flex items-center gap-3">
-                  <Phone className="w-4 h-4 text-emerald-600" />
-                  <span className="font-sans font-semibold text-slate-900 text-xs sm:text-sm">Call Mobile: {PROFILE_INFO.phone}</span>
-                </div>
-                <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
-              </a>
+              <button onClick={() => { onClose(); onOpenContact(); }} className="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-slate-100 text-left"><Phone className="w-4 h-4 text-blue-700" /><span className="font-semibold text-sm">Request a Call</span></button>
             </div>
           )}
 
