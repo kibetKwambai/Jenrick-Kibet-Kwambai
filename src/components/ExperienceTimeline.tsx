@@ -145,7 +145,7 @@ export const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({ onSelect
 
             {/* Bullet achievements in Lato font */}
             <div className="mt-4 space-y-2 pt-3 border-t border-slate-100">
-              {exp.highlights.slice(0, 3).map((bullet, bIdx) => (
+              {exp.highlights.map((bullet, bIdx) => (
                 <div key={bIdx} className="flex items-start gap-2.5 font-body text-xs sm:text-sm text-slate-600 leading-relaxed">
                   <div className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-1.5 shrink-0" />
                   <span>{bullet}</span>
@@ -156,7 +156,7 @@ export const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({ onSelect
             {/* Bottom action: View Full Role Dossier */}
             <div className="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between">
               <div className="flex flex-wrap items-center gap-1.5">
-                {exp.technologies.slice(0, 4).map((tag) => (
+                {exp.technologies.slice(0, 2).map((tag) => (
                   <span
                     key={tag}
                     className="font-mono text-[10px] px-2 py-0.5 rounded bg-slate-100 text-slate-600 border border-slate-200/70"

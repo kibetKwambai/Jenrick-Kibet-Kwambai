@@ -4,7 +4,6 @@ import { DIGITAL_PROJECTS } from './data/digitalPlatforms';
 import { Navbar } from './components/Navbar';
 import { ProfessionalSummary } from './components/ProfessionalSummary';
 import { Hero } from './components/Hero';
-import { MetricsBento } from './components/MetricsBento';
 import { ExperienceTimeline } from './components/ExperienceTimeline';
 import { PublicationsSection } from './components/PublicationsSection';
 import { ProjectsShowcase } from './components/ProjectsShowcase';
@@ -77,7 +76,7 @@ export default function App() {
         <ProfessionalSummary />
 
         {/* Operational Performance & Domains */}
-        <MetricsBento />
+        <SkillsMatrix />
 
         {/* Career Dossier & Leadership */}
         <ExperienceTimeline
@@ -98,7 +97,6 @@ export default function App() {
 
         {/* Engineering Domains & Competencies */}
         <DigitalPlatformsSection onSelectProject={setSelectedProject} />
-        <SkillsMatrix />
 
         {/* Academic Degrees & Certifications */}
         <CertificationsEducation />

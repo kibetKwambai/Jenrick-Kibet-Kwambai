@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react';
 import {Menu,X,FileText,Search,ArrowUpRight} from 'lucide-react';
 import {PROFILE_INFO} from '../data/profileData';
 import {useDialogFocus} from './useDialogFocus';
-const links=[['Overview','overview'],['Summary','summary'],['Experience','experience'],['Manuals','technical-manuals'],['Research','publications'],['Projects','projects'],['Websites','websites'],['Skills','skills']];
+const links=[['Overview','overview'],['Summary','summary'],['Expertise','skills'],['Experience','experience'],['Manuals','technical-manuals'],['Research','publications'],['Projects','projects'],['Websites','websites']];
 export const Navbar:React.FC<{onOpenContact:()=>void;onOpenResume:()=>void;onOpenCommandPalette:()=>void}>=({onOpenContact,onOpenResume,onOpenCommandPalette})=>{
   const [open,setOpen]=useState(false);const ref=useDialogFocus(open,()=>setOpen(false));
   useEffect(()=>{const mq=window.matchMedia('(min-width:1280px)');const resize=()=>{if(mq.matches)setOpen(false);};mq.addEventListener('change',resize);return()=>mq.removeEventListener('change',resize);},[]);

@@ -1,3 +1,4 @@
+import {CAREER_BULLETS, ROLE_PERIODS} from './careerContent';
 import { ExperienceItem, PublicationItem, ProjectItem, SkillCategory, EducationItem, CertificationItem } from '../types';
 
 export const PROFILE_INFO = {
@@ -26,7 +27,7 @@ export const PROFILE_INFO = {
   ]
 };
 
-export const EXPERIENCES: ExperienceItem[] = [
+const ORIGINAL_EXPERIENCES: ExperienceItem[] = [
   {
     id: "kasas-aviation",
     role: "Project Manager",
@@ -245,6 +246,8 @@ export const EXPERIENCES: ExperienceItem[] = [
     ]
   }
 ];
+
+export const EXPERIENCES: ExperienceItem[] = ORIGINAL_EXPERIENCES.map(e=>({...e,role:e.id === "deftec-kdf" ? "Engine Checks & Repair — Practical Training" : e.role,highlights:CAREER_BULLETS[e.id] ?? e.highlights,period:ROLE_PERIODS[e.id] ?? e.period}));
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
