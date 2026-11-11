@@ -17,7 +17,7 @@ export const CAREER_BULLETS:Record<string,string[]> = {
 'Develop SkyLink for X-Plane connectivity with ForeFlight, Garmin and other pilot platforms.',
 'Build Jenlink Timetable, JenVibe MCP and Optipress to support scheduling, AI–website connectivity, and WordPress page and image optimisation.',
 'Deliver e-learning, professional and e-commerce websites, including SCORM/xAPI learning workflows.',
-'Engineer Cockpit Recorders and embedded sensor interfaces for flight-training telemetry capture and playback.'
+'Engineer Jicheki Cockpit Recorder and embedded sensor interfaces for flight-training telemetry capture, playback and diagnostics.'
 ],
 'deltar-properties':[
 'Generated $2M+ in revenue through technical solution selling and client engagement.',

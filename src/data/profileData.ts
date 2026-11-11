@@ -9,7 +9,7 @@ export const PROFILE_INFO = {
   about: "I coordinate engineering teams, vendor budgets and operational priorities across aviation training systems. My background spans project management at Kasas Aviation, FSTD engineering at Think Aviation, AWS/Azure data pipelines at Zalego–STEPWISE and software platforms at Jeneration Software. I connect requirements, implementation, testing and technical documentation to practical operational outcomes.",
   qualificationBio: "I have developed EASA CS-FSTD(A)/(H) Issue 1 and Issue 2 checklists and participated in FSTD qualification and approval activities.",
   researcherBio: "I am an academic and professional researcher, with published work on communication satellite system design, Dornier 228 maintenance and overhaul, and the JFK Watcher surveillance and communication drone and autonomous charging station.",
-  softwareBio: "I develop aviation apps and software, including SkyLink for X-Plane integration with ForeFlight, Garmin, and other pilot platforms. My WordPress plugins include Jenlink Timetable, JenVibe MCP for connecting AI assistants to websites, and Optipress for page and image optimization.",
+  softwareBio: "I develop aviation apps and software, including Jicheki Cockpit Recorder, SkyLink for X-Plane integration with ForeFlight and Garmin, JenVibe MCP, Jenlink Timetable, Testimonial Bridge, Educore LMS and Optipress, alongside simulator engineering tools and full-stack platforms.",
   location: "Nairobi, Kenya",
   currentRole: "Project Manager & Flight Simulator Operations Lead",
   currentCompany: "Kasas Aviation Ltd. & Think Aviation Ltd.",
@@ -877,10 +877,10 @@ export const PROJECTS: ProjectItem[] = [
     title: "Avionics Cockpit Recorders & Telemetry Tools",
     category: "Software & Web",
     subtitle: "Embedded Flight Data Acquisition & SCORM Learning Systems",
-    description: "Developed at Jeneration Software and Zalego STEPWISE. Engineered embedded cockpit flight telemetry recorders using Raspberry Pi, Arduinos, and PLCs, integrated with big-data AWS/Azure pipelines (10TB+).",
+    description: "Developed Jicheki as a cockpit and flight-training telemetry platform using Raspberry Pi, Arduino and PLC interfaces, with capture, playback diagnostics and integration into AWS/Azure data workflows.",
     imageAlt: "Cockpit Recorders & Telemetry",
     highlights: [
-      "Constructed dedicated Cockpit Recorders for flight training telemetry capture and playback diagnostics.",
+      "Developed Jicheki Cockpit Recorder for flight-training telemetry capture, playback and operational diagnostics.",
       "Built AWS and Azure cloud data infrastructure handling 10TB+ of data, reducing processing time by 40%.",
       "Saved over 20+ hours weekly through automated reporting scripts and data parsing pipelines."
     ],
