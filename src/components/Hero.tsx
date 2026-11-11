@@ -30,7 +30,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact, onOpenResume }) => {
   return (
     <section id="overview" className="pt-28 sm:pt-36 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8 max-w-[102.4rem] mx-auto">
       <div className="space-y-7">
-        <span className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3 py-1.5 text-sm font-semibold text-blue-800"><MapPin className="h-4 w-4" aria-hidden="true" />Nairobi, Kenya · Open to remote roles</span>
+        <span className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3 py-1.5 text-sm font-semibold text-blue-800"><MapPin className="h-4 w-4" aria-hidden="true" />Nairobi, Kenya · Open to New Roles</span>
 
         {/* Executive Headline in Outfit font */}
         <div className="space-y-3">
