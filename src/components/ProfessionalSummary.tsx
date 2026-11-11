@@ -2,7 +2,7 @@ import React from 'react';
 import { EXECUTIVE_SUMMARY, HYBRID_SUMMARY } from '../data/careerContent';
 
 const deliveryEvidence = [
-  { title: 'Project leadership & resources', source: 'Kasas Aviation · Project Manager', text: 'Coordinate 12+ engineers supporting simulator operations and training delivery. Manage a $500K+ annual vendor and parts budget, with 15% procurement savings.', href: '#experience' },
+  { title: 'Project leadership & resources', source: 'Kasas Aviation · Project Manager', text: 'Coordinate 50+ cross-functional engineers across simulator, technical and delivery workstreams, with 108+ engineering and technical projects delivered. Support a vendor and technical-services portfolio valued at more than $600M, while driving disciplined cost, quality and delivery control.', href: '#experience' },
   { title: 'Data platforms & analytics', source: 'Zalego–STEPWISE · Data Engineer', text: 'Built AWS/Azure ETL workflows handling 10TB+ of data, reduced processing time by 40% and automated reporting that saved 20+ hours weekly.', href: '#experience' },
   { title: 'Requirements & software delivery', source: 'Jeneration Software · Software Engineer', text: 'Translate operational needs into scheduling tools, e-learning workflows, AI–website integrations and embedded telemetry interfaces.', href: '#websites' },
   { title: 'Quality, validation & handover', source: 'Think Aviation · Flight Simulator Engineer', text: 'Support QTG preparation and qualification activities with technical records, maintenance programmes, test evidence, manuals and instructor training.', href: '#technical-manuals' }
@@ -27,7 +27,7 @@ const roleAlignment = [
   },
   {
     title: 'Vendor, Budget & Delivery Oversight',
-    items: ['$500K+ annual vendor/parts portfolio', '15% procurement savings', 'Resource prioritisation', 'Supplier deliverables & quality']
+    items: ['$600M+ vendor & technical support portfolio', '108+ engineering & technical projects', 'Resource prioritisation', 'Supplier deliverables & quality']
   },
   {
     title: 'Testing, UAT & Operational Readiness',

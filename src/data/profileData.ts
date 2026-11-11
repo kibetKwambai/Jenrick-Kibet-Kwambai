@@ -21,9 +21,10 @@ export const PROFILE_INFO = {
   timezone: "East Africa Time (UTC+3)",
   stats: [
     { label: "FSTD Uptime Sustained", value: "99%+", description: "Cessna Grand Caravan, C172 & Dornier 228" },
-    { label: "Pilots & Instructors Trained", value: "100+", description: "Commercial pilots & ATO flight cadets" },
-    { label: "Engineers Coordinated", value: "12+", description: "Electrical, mechanical & software technicians" },
-    { label: "Vendor Budget Savings", value: "15%", description: "Managed $500K+ annual portfolio with KCAA compliance" },
+    { label: "Pilots Trained", value: "200+", description: "Commercial pilots, instructors & ATO trainees" },
+    { label: "Engineers Coordinated", value: "50+", description: "Cross-functional engineering & technical teams" },
+    { label: "Engineering Projects", value: "108+", description: "Engineering, systems, software & technical delivery projects" },
+    { label: "Vendor & Support Portfolio", value: "$600M+", description: "Vendor-supported systems, services & technical delivery portfolio" },
   ]
 };
 
@@ -39,17 +40,18 @@ const ORIGINAL_EXPERIENCES: ExperienceItem[] = [
     summary: "Leading simulator operations, facility regulatory compliance, and aviation-training projects aligned with Kenya Civil Aviation Authority (KCAA) and international quality standards.",
     highlights: [
       "I lead simulator operations, facility compliance, and aviation-training projects aligned with KCAA and international quality requirements.",
-      "Coordinate a cross-functional engineering team of 12+ engineers to support 50+ pilots annually in type ratings and recurrency validations.",
+      "Coordinate 50+ cross-functional engineers across FSTD operations, systems integration and technical delivery, supporting training for 200+ pilots.",
       "Improved operational efficiency across facility operations by 25% through standardized preventive maintenance protocols.",
       "Manage an annual vendor and parts procurement budget exceeding $500,000, achieving 15% strategic cost savings."
     ],
-    technologies: ["KCAA Compliance", "FSTD Operations", "Team Coordination", "Budget Management ($500K+)", "Preventive Maintenance", "Audit Readiness"],
+    technologies: ["KCAA Compliance", "FSTD Operations", "Team Coordination", "Vendor & Technical Support Portfolio ($600M+)", "Preventive Maintenance", "Audit Readiness"],
     aircraftPlatforms: ["Cessna Grand Caravan 208B", "Cessna 172 Skyhawk", "Dornier 228"],
     metrics: [
       { label: "Operational Efficiency", value: "+25%" },
       { label: "Budget Savings", value: "15%" },
-      { label: "Annual Budget", value: "$500K+" },
-      { label: "Pilots Supported", value: "50+ / yr" }
+      { label: "Vendor & Support Portfolio", value: "$600M+" },
+      { label: "Engineering Projects", value: "108+" },
+      { label: "Pilots Trained", value: "200+" }
     ],
     regulatoryBodies: ["KCAA (Kenya Civil Aviation Authority)", "ICAO Doc 9625 Quality Standards"]
   },
@@ -66,13 +68,13 @@ const ORIGINAL_EXPERIENCES: ExperienceItem[] = [
       "Maintain Cessna Grand Caravan, C172, and Dornier 228 FSTD platforms across electrical, mechanical, and software systems.",
       "Execute corrective, preventive, risk-based, and condition-based maintenance sustaining 99%+ uptime.",
       "Troubleshoot with advanced test equipment, optimize C++/Python codebases, and integrate Garmin G1000 NXi avionics suites.",
-      "Train and support 100+ pilots and instructors on simulator operations, navigation databases, and emergency approach procedures."
+      "Train and support 200+ pilots on simulator operations, navigation databases, abnormal procedures, and emergency approach scenarios."
     ],
     technologies: ["Garmin G1000 NXi", "C++ / Python Optimization", "Avionics Electrical Systems", "Visual Projection & Collimation", "QTG Testing", "Scenery Simulation"],
     aircraftPlatforms: ["Cessna Grand Caravan 208", "Cessna 172 Skyhawk", "Dornier 228 FSTD"],
     metrics: [
       { label: "Simulator Uptime", value: "99%+" },
-      { label: "Pilots & Instructors Trained", value: "100+" },
+      { label: "Pilots Trained", value: "200+" },
       { label: "Maintenance Modes", value: "4 Tiers" }
     ],
     regulatoryBodies: ["KCAA Approved Training Organization (ATO) Protocols"]
@@ -383,7 +385,7 @@ export const EDUCATION_LIST: EducationItem[] = [
     location: "Nairobi, Kenya",
     details: "Professional project management methodology covering technical project lifecycles, Agile/Scrum, vendor procurement, cost modeling, and engineering team leadership.",
     achievements: [
-      "Applied directly to Kasas Aviation $500K+ annual vendor budget and fleet management."
+      "Applied directly to large-scale vendor, technical-support and fleet-management portfolios valued above $600M."
     ]
   },
   {

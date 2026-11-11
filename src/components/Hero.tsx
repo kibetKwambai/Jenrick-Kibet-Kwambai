@@ -38,12 +38,12 @@ interface HeroProps {
 }
 
 const impact = [
-  {icon: UsersRound, value:'12+', label:'Engineers coordinated'},
+  {icon: UsersRound, value:'50+', label:'Engineers coordinated'},
+  {icon: GraduationCap, value:'200+', label:'Pilots trained'},
+  {icon: Cpu, value:'108+', label:'Engineering projects'},
+  {icon: WalletCards, value:'$600M+', label:'Vendor & support portfolio'},
   {icon: Database, value:'10TB+', label:'Data engineered'},
-  {icon: Gauge, value:'40%', label:'Processing improvement'},
-  {icon: WalletCards, value:'$500K+', label:'Vendor portfolio'},
-  {icon: Activity, value:'99%+', label:'FSTD uptime'},
-  {icon: GraduationCap, value:'100+', label:'Pilots & instructors'}
+  {icon: Activity, value:'99%+', label:'FSTD uptime'}
 ];
 
 export const Hero: React.FC<HeroProps> = ({ onOpenContact, onOpenResume }) => {

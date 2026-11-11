@@ -6,10 +6,12 @@ I combine project leadership with hands-on data engineering, software delivery a
 
 ## Selected delivery evidence
 
-- **Project leadership:** coordinate 12+ engineers supporting simulator operations and training delivery.
-- **Commercial oversight:** manage a $500K+ annual vendor and parts portfolio with 15% procurement savings.
+- **Project leadership:** coordinate 50+ cross-functional engineers across simulator, systems and technical-delivery workstreams.
+- **Vendor & technical support:** support a portfolio valued at more than $600M across vendors, systems, services and technical delivery.
 - **Data engineering:** built AWS/Azure ETL workflows handling 10TB+ of client and operational data.
 - **Performance improvement:** reduced data-processing time by 40% and automated reporting saving 20+ hours weekly.
+- **Engineering delivery:** 108+ engineering and technical projects across aviation, systems, software and data.
+- **Training impact:** 200+ pilots trained and supported across simulator operations and technical training.
 - **Operational reliability:** sustain 99%+ uptime across C208B, C172 and Dornier 228 flight simulation platforms.
 - **Technology delivery:** software platforms, embedded telemetry, e-learning, system integrations, testing and technical handover.
 
