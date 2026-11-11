@@ -43,7 +43,7 @@ export default function App() {
   const handleSelectProjectById = (id: string) => { const found = [...PROJECTS, ...DIGITAL_PROJECTS].find(p => p.id === id); if (found) setSelectedProject(found); };
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 selection:bg-lime-100 selection:text-slate-950 relative font-body antialiased">
+    <div className="min-h-screen bg-white text-slate-900 selection:bg-blue-100 selection:text-slate-950 relative font-body antialiased">
       <Navbar onOpenContact={() => setContactModalOpen(true)} onOpenResume={() => setResumeModalOpen(true)} onOpenCommandPalette={() => setCommandPaletteOpen(true)} />
       <main className="relative">
         <Hero onOpenContact={() => setContactModalOpen(true)} onOpenResume={() => setResumeModalOpen(true)} onOpenCommandPalette={() => setCommandPaletteOpen(true)} />

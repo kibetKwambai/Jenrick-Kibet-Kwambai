@@ -70,10 +70,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact, onOpenResume }) => {
               <button onClick={onOpenContact} className="primary-cta"><span>Get in Touch</span><ArrowRight className="w-4 h-4" /></button>
               <button onClick={onOpenResume} className="secondary-cta"><FileText className="w-4 h-4"/><span>Curriculum Vitae</span></button>
               <a href={PROFILE_INFO.githubUrl} target="_blank" rel="noopener noreferrer" className="secondary-cta"><Github className="w-4 h-4"/><span>GitHub</span></a>
-              <a href={PROFILE_INFO.linkedinUrl} target="_blank" rel="noopener noreferrer" className="secondary-cta"><Linkedin className="w-4 h-4 text-[#0A66C2]"/><span>LinkedIn</span></a>
+              <a href={PROFILE_INFO.linkedinUrl} target="_blank" rel="noopener noreferrer" className="secondary-cta"><Linkedin className="w-4 h-4 text-blue-700"/><span>LinkedIn</span></a>
             </div>
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-slate-500">
-              <button onClick={handleCopyEmail} className="inline-flex items-center gap-1.5 hover:text-blue-700"><Mail className="h-3.5 w-3.5"/>{copiedEmail ? <><Check className="h-3.5 w-3.5 text-emerald-600"/>Copied</> : <><span>{PROFILE_INFO.email}</span><Copy className="h-3.5 w-3.5"/></>}</button>
+              <button onClick={handleCopyEmail} className="inline-flex items-center gap-1.5 hover:text-blue-700"><Mail className="h-3.5 w-3.5"/>{copiedEmail ? <><Check className="h-3.5 w-3.5 text-blue-700"/>Copied</> : <><span>{PROFILE_INFO.email}</span><Copy className="h-3.5 w-3.5"/></>}</button>
               <button onClick={onOpenContact} className="inline-flex items-center gap-1.5 hover:text-blue-700"><Phone className="h-3.5 w-3.5"/>Request a call</button>
             </div>
           </div>
