@@ -29,10 +29,10 @@ export const SkillsMatrix: React.FC = () => {
           Core Competencies & Stack
         </span>
         <h2 className="font-heading text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 mt-1">
-          Technical Domains & Engineering Stack
+          Project Delivery & Technical Expertise
         </h2>
         <p className="font-body text-sm sm:text-base text-slate-600 mt-2 max-w-2xl leading-relaxed">
-          An interdisciplinary mastery uniting aerospace flight simulation protocols, unmanned robotics autopilots, modern cloud software, and engineering leadership.
+          Project coordination backed by hands-on data engineering, software development, systems validation and aviation operations.
         </p>
       </div>
 

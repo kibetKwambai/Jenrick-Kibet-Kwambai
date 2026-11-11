@@ -9,7 +9,7 @@ export const ResumeDocument:React.FC=()=> <div className="cv-document">
   <article className="cv-page"><header className="cv-heading"><h1>JENRICK KIBET KWAMBAI</h1><p className="cv-headline">{PROFILE_INFO.headline}</p><p>{PROFILE_INFO.email} · {PROFILE_INFO.location}</p><p><a href="https://kibetkwambai.github.io/Jenrick-Kibet-Kwambai/">kibetkwambai.github.io/Jenrick-Kibet-Kwambai</a> · linkedin.com/in/jenrickkibet</p></header>
     <section><h2>Professional Profile</h2><p>{EXECUTIVE_SUMMARY}</p></section>
     <section><h2>Professional Experience</h2>{EXPERIENCES.slice(0,5).map(e=><div className="cv-role" key={e.id}><div className="cv-role-title"><h3>{e.role}</h3><span>{e.period}</span></div><p className="cv-company">{e.company}</p><ul>{e.highlights.slice(0,3).map(b=><li key={b}>{b}</li>)}</ul></div>)}</section>
-    <section><h2>Core Expertise</h2><p>Flight simulation systems · FSTD maintenance & troubleshooting · QTG development · Technical manual authoring · Qualification evidence · Aerospace research · UAV systems · Software engineering · Website development</p></section>
+    <section><h2>Core Expertise</h2><p>Technical project coordination · Vendor & budget management · Requirements & solution design · AWS/Azure ETL · SQL & Python · Automated reporting · Systems testing · QTG & compliance documentation</p></section>
     <footer className="cv-page-footer">Jenrick Kibet Kwambai · Curriculum Vitae <span>1 / 2</span></footer>
   </article>
   <article className="cv-page"><header className="cv-continuation">JENRICK KIBET KWAMBAI <span>Technical Portfolio & Qualifications</span></header>

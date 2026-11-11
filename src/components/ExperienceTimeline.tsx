@@ -55,7 +55,7 @@ export const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({ onSelect
             Work Experience & Systems Leadership
           </h2>
           <p className="font-body text-sm sm:text-base text-slate-600 mt-2 max-w-2xl leading-relaxed">
-            Spanning commercial aviation flight simulation training devices (FSTD), Kenya Defense Forces (DEFTEC) jet turbine engines, police airwing fleet maintenance, and autonomous UAV flight controllers.
+            Project leadership, cloud data engineering, software implementation and aviation systems—supported by earlier research, commercial and maintenance roles.
           </p>
         </div>
 
