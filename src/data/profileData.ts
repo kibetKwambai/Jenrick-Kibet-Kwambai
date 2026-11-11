@@ -4,7 +4,7 @@ import { ExperienceItem, PublicationItem, ProjectItem, SkillCategory, EducationI
 export const PROFILE_INFO = {
   name: "Jenrick Kibet Kwambai",
   displayName: "Jenrick Kibet Kwambai",
-  headline: "Technical Project Manager, Data & Technology Delivery, Systems Engineer, FSTD & Software Engineer",
+  headline: "Technical Project Manager, Data & Technology Project Manager, Engineering Project Manager, Systems Engineer, Aircraft Maintenance Engineer, Flight Simulator Technician, Avionics Technician",
   shortBio: "Connecting technical project leadership with AWS/Azure data engineering, software delivery, systems integration and flight simulator operations.",
   about: "I coordinate engineering teams, vendor budgets and operational priorities across aviation training systems. My background spans project management at Kasas Aviation, FSTD engineering at Think Aviation, AWS/Azure data pipelines at Zalego–STEPWISE and software platforms at Jeneration Software. I connect requirements, implementation, testing and technical documentation to practical operational outcomes.",
   qualificationBio: "I have developed EASA CS-FSTD(A)/(H) Issue 1 and Issue 2 checklists and participated in FSTD qualification and approval activities.",
@@ -17,7 +17,7 @@ export const PROFILE_INFO = {
   alternateEmail: "jenrickkibet@gmail.com",
   linkedinUrl: "https://www.linkedin.com/in/jenrickkibet/",
   githubUrl: "https://github.com/kibetKwambai",
-  availability: "Open to Technical Project Management, Data & Technology and Systems Engineering Roles",
+  availability: "Open to Technical Project Management, Data & Technology, Engineering, FSTD, Aircraft Maintenance and Avionics Roles",
   timezone: "East Africa Time (UTC+3)",
   stats: [
     { label: "FSTD Uptime Sustained", value: "99%+", description: "Cessna Grand Caravan, C172 & Dornier 228" },
