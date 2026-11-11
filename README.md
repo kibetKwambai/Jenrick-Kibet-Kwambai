@@ -1,6 +1,7 @@
 # Jenrick Kibet Kwambai
 
 FSTD & aerospace systems engineering, autonomous UAVs, and full-stack software development.
+Technical Project Manager, Data & Technology Project Manager, Engineering Project Manager, Systems Engineer, Aircraft Maintenance Engineer, Flight Simulator Technician, Avionics Technician
 
 ## Portfolio
 
