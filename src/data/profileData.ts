@@ -4,9 +4,9 @@ import { ExperienceItem, PublicationItem, ProjectItem, SkillCategory, EducationI
 export const PROFILE_INFO = {
   name: "Jenrick Kibet Kwambai",
   displayName: "Jenrick Kibet Kwambai",
-  headline: "Aerospace, System, FSTD Engineer & Software Engineer",
-  shortBio: "Specializing in certified Flight Simulation Training Devices (FSTD), aircraft avionics maintenance, autonomous UAV flight control systems, and full-stack software & data engineering.",
-  about: "FSTD & Aerospace Systems Engineer with hands-on leadership maintaining mission-critical Flight Simulation Training Devices (FSTDs) across Cessna Grand Caravan 208B, C172, and Dornier 228 platforms—achieving sustained 99%+ operational uptime. Extensive background spanning Kenya Defense Forces (DEFTEC) military jet & helicopter systems, Kenya Police Airwing fleet maintenance, autonomous drone design (the JFK Surveillance Drone), and full-stack software development with AWS/Azure data infrastructure.",
+  headline: "Technical Project Manager, Data & Technology Delivery, Systems Engineer, FSTD & Software Engineer",
+  shortBio: "Connecting technical project leadership with AWS/Azure data engineering, software delivery, systems integration and flight simulator operations.",
+  about: "I coordinate engineering teams, vendor budgets and operational priorities across aviation training systems. My background spans project management at Kasas Aviation, FSTD engineering at Think Aviation, AWS/Azure data pipelines at Zalego–STEPWISE and software platforms at Jeneration Software. I connect requirements, implementation, testing and technical documentation to practical operational outcomes.",
   qualificationBio: "I have developed EASA CS-FSTD(A)/(H) Issue 1 and Issue 2 checklists and participated in FSTD qualification and approval activities.",
   researcherBio: "I am an academic and professional researcher, with published work on communication satellite system design, Dornier 228 maintenance and overhaul, and the JFK Watcher surveillance and communication drone and autonomous charging station.",
   softwareBio: "I develop aviation apps and software, including SkyLink for X-Plane integration with ForeFlight, Garmin, and other pilot platforms. My WordPress plugins include Jenlink Timetable, JenVibe MCP for connecting AI assistants to websites, and Optipress for page and image optimization.",
@@ -17,7 +17,7 @@ export const PROFILE_INFO = {
   alternateEmail: "jenrickkibet@gmail.com",
   linkedinUrl: "https://www.linkedin.com/in/jenrickkibet/",
   githubUrl: "https://github.com/kibetKwambai",
-  availability: "Open to Aviation, Aerospace, Drone & Technical Leadership Roles",
+  availability: "Open to Technical Project Management, Data & Technology and Systems Engineering Roles",
   timezone: "East Africa Time (UTC+3)",
   stats: [
     { label: "FSTD Uptime Sustained", value: "99%+", description: "Cessna Grand Caravan, C172 & Dornier 228" },
@@ -250,6 +250,19 @@ const ORIGINAL_EXPERIENCES: ExperienceItem[] = [
 export const EXPERIENCES: ExperienceItem[] = ORIGINAL_EXPERIENCES.map(e=>({...e,role:e.id === "deftec-kdf" ? "Engine Checks & Repair — Practical Training" : e.role,highlights:CAREER_BULLETS[e.id] ?? e.highlights,period:ROLE_PERIODS[e.id] ?? e.period}));
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
+  {
+    title: "Technical Project Delivery",
+    iconName: "ShieldCheck",
+    description: "Project coordination, vendor budgets, stakeholder requirements and engineering quality documentation.",
+    skills: [
+      { name: "Cross-functional Engineering Coordination", level: "Advanced", tag: "Kasas Aviation" },
+      { name: "Vendor & Procurement Budget Management", level: "Advanced", tag: "Project delivery" },
+      { name: "Technical Requirements & Solution Design", level: "Advanced", tag: "Systems & software" },
+      { name: "Technical Reporting & Documentation", level: "Advanced", tag: "QTG & manuals" },
+      { name: "Testing & Systems Validation", level: "Advanced", tag: "FSTD & integrations" },
+      { name: "Process Improvement & Operational Handover", level: "Advanced", tag: "Maintenance & training" }
+    ]
+  },
   {
     title: "Sim Operator & FSTD Maintenance",
     iconName: "Plane",
