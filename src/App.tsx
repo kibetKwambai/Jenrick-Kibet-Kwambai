@@ -7,6 +7,7 @@ import { Hero } from './components/Hero';
 import { ExperienceTimeline } from './components/ExperienceTimeline';
 import { PublicationsSection } from './components/PublicationsSection';
 import { ProjectsShowcase } from './components/ProjectsShowcase';
+import { SoftwarePortfolio } from './components/SoftwarePortfolio';
 import { SkillsMatrix } from './components/SkillsMatrix';
 import { CertificationsEducation } from './components/CertificationsEducation';
 import { ReferencesSection } from './components/ReferencesSection';
@@ -29,121 +30,41 @@ export default function App() {
   const [selectedExperience, setSelectedExperience] = useState<ExperienceItem | null>(null);
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
 
-  // Global shortcut: ⌘K or Ctrl+K opens Command Palette
   useEffect(() => {
     const handleGlobalKeyDown = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-        e.preventDefault();
-        setCommandPaletteOpen((prev) => !prev);
-      }
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); setCommandPaletteOpen(prev => !prev); }
     };
     window.addEventListener('keydown', handleGlobalKeyDown);
     return () => window.removeEventListener('keydown', handleGlobalKeyDown);
   }, []);
 
-  const handleSelectExperienceById = (id: string) => {
-    const found = EXPERIENCES.find((e) => e.id === id);
-    if (found) setSelectedExperience(found);
-  };
-
-  const handleSelectPublicationById = (id: string) => {
-    const found = PUBLICATIONS.find((p) => p.id === id);
-    if (found) setSelectedPublication(found);
-  };
-
-  const handleSelectProjectById = (id: string) => {
-    const found = [...PROJECTS, ...DIGITAL_PROJECTS].find((p) => p.id === id);
-    if (found) setSelectedProject(found);
-  };
+  const handleSelectExperienceById = (id: string) => { const found = EXPERIENCES.find(e => e.id === id); if (found) setSelectedExperience(found); };
+  const handleSelectPublicationById = (id: string) => { const found = PUBLICATIONS.find(p => p.id === id); if (found) setSelectedPublication(found); };
+  const handleSelectProjectById = (id: string) => { const found = [...PROJECTS, ...DIGITAL_PROJECTS].find(p => p.id === id); if (found) setSelectedProject(found); };
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 selection:bg-blue-100 selection:text-blue-900 transition-colors duration-150 relative font-body antialiased">
-      {/* Top Professional Header */}
-      <Navbar
-        onOpenContact={() => setContactModalOpen(true)}
-        onOpenResume={() => setResumeModalOpen(true)}
-        onOpenCommandPalette={() => setCommandPaletteOpen(true)}
-      />
-
-      {/* Main Content Sections */}
+    <div className="min-h-screen bg-white text-slate-900 selection:bg-lime-100 selection:text-slate-950 relative font-body antialiased">
+      <Navbar onOpenContact={() => setContactModalOpen(true)} onOpenResume={() => setResumeModalOpen(true)} onOpenCommandPalette={() => setCommandPaletteOpen(true)} />
       <main className="relative">
-        <Hero
-          onOpenContact={() => setContactModalOpen(true)}
-          onOpenResume={() => setResumeModalOpen(true)}
-          onOpenCommandPalette={() => setCommandPaletteOpen(true)}
-        />
-
+        <Hero onOpenContact={() => setContactModalOpen(true)} onOpenResume={() => setResumeModalOpen(true)} onOpenCommandPalette={() => setCommandPaletteOpen(true)} />
         <ProfessionalSummary />
-
-        {/* Operational Performance & Domains */}
         <SkillsMatrix />
-
-        {/* Career Dossier & Leadership */}
-        <ExperienceTimeline
-          onSelectExperience={(exp) => setSelectedExperience(exp)}
-        />
-
+        <SoftwarePortfolio />
+        <ExperienceTimeline onSelectExperience={setSelectedExperience} />
+        <ProjectsShowcase onSelectProject={setSelectedProject} />
         <TechnicalManualsSection />
-
-        {/* Publications & Research Case Studies */}
-        <PublicationsSection
-          onSelectPublication={(pub) => setSelectedPublication(pub)}
-        />
-
-        {/* Systems Deployments & Projects */}
-        <ProjectsShowcase
-          onSelectProject={(proj) => setSelectedProject(proj)}
-        />
-
-        {/* Engineering Domains & Competencies */}
+        <PublicationsSection onSelectPublication={setSelectedPublication} />
         <DigitalPlatformsSection onSelectProject={setSelectedProject} />
-
-        {/* Academic Degrees & Certifications */}
         <CertificationsEducation />
-
-        {/* References available upon request */}
         <ReferencesSection onOpenContact={() => setContactModalOpen(true)} />
       </main>
-
-      {/* Footer */}
       <Footer onOpenContact={() => setContactModalOpen(true)} />
-
-      {/* Interactive Modals */}
-      <PublicationModal
-        publication={selectedPublication}
-        onClose={() => setSelectedPublication(null)}
-      />
-
-      <ExperienceModal
-        experience={selectedExperience}
-        onClose={() => setSelectedExperience(null)}
-      />
-
-      <ProjectModal
-        project={selectedProject}
-        onClose={() => setSelectedProject(null)}
-      />
-
-      <ContactModal
-        isOpen={contactModalOpen}
-        onClose={() => setContactModalOpen(false)}
-      />
-
-      <ResumeModal
-        isOpen={resumeModalOpen}
-        onClose={() => setResumeModalOpen(false)}
-      />
-
-      {/* Spotlight Command Search Palette */}
-      <CommandPalette
-        isOpen={commandPaletteOpen}
-        onClose={() => setCommandPaletteOpen(false)}
-        onSelectExperience={handleSelectExperienceById}
-        onSelectPublication={handleSelectPublicationById}
-        onSelectProject={handleSelectProjectById}
-        onOpenContact={() => setContactModalOpen(true)}
-        onOpenResume={() => setResumeModalOpen(true)}
-      />
+      <PublicationModal publication={selectedPublication} onClose={() => setSelectedPublication(null)} />
+      <ExperienceModal experience={selectedExperience} onClose={() => setSelectedExperience(null)} />
+      <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+      <ContactModal isOpen={contactModalOpen} onClose={() => setContactModalOpen(false)} />
+      <ResumeModal isOpen={resumeModalOpen} onClose={() => setResumeModalOpen(false)} />
+      <CommandPalette isOpen={commandPaletteOpen} onClose={() => setCommandPaletteOpen(false)} onSelectExperience={handleSelectExperienceById} onSelectPublication={handleSelectPublicationById} onSelectProject={handleSelectProjectById} onOpenContact={() => setContactModalOpen(true)} onOpenResume={() => setResumeModalOpen(true)} />
     </div>
   );
 }
