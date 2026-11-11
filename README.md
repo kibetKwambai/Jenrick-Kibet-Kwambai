@@ -1,23 +1,40 @@
 # Jenrick Kibet Kwambai
 
-FSTD & aerospace systems engineering, autonomous UAVs, and full-stack software development.
-Technical Project Manager, Data & Technology Project Manager, Engineering Project Manager, Systems Engineer, Aircraft Maintenance Engineer, Flight Simulator Technician, Avionics Technician
+**Technical Project Manager · Data & Technology Project Manager · Engineering Project Manager · Systems Engineer**
+
+I combine project leadership with hands-on data engineering, software delivery and aerospace systems experience. My work spans cross-functional engineering coordination, vendor and budget management, AWS/Azure data pipelines, system integration, validation, technical documentation and regulated flight-simulation operations.
+
+## Selected delivery evidence
+
+- **Project leadership:** coordinate 12+ engineers supporting simulator operations and training delivery.
+- **Commercial oversight:** manage a $500K+ annual vendor and parts portfolio with 15% procurement savings.
+- **Data engineering:** built AWS/Azure ETL workflows handling 10TB+ of client and operational data.
+- **Performance improvement:** reduced data-processing time by 40% and automated reporting saving 20+ hours weekly.
+- **Operational reliability:** sustain 99%+ uptime across C208B, C172 and Dornier 228 flight simulation platforms.
+- **Technology delivery:** software platforms, embedded telemetry, e-learning, system integrations, testing and technical handover.
+
+## Core professional domains
+
+Project & portfolio delivery · Business analysis · Requirements & traceability · Risk & issue management · Vendor coordination · Budget oversight · Data engineering & analytics · AWS/Azure · SQL/Python/ETL · Systems integration · Testing & acceptance · Quality & compliance · Technical documentation · Operational handover
 
 ## Portfolio
 
-**[Visit my live website](https://kibetkwambai.github.io/Jenrick-Kibet-Kwambai/)**
+**[Visit the live professional portfolio](https://kibetkwambai.github.io/Jenrick-Kibet-Kwambai/)**
 
-Explore my experience, projects, publications, skills, and technical manuals.
+Explore professional experience, projects, publications, technical manuals, digital platforms, skills and qualifications.
 
-[Request a Call](https://kibetkwambai.github.io/Jenrick-Kibet-Kwambai/#overview) — open the live profile and select Request a Call to introduce yourself for review.
-
-[GitHub](https://github.com/kibetKwambai) · [LinkedIn](https://www.linkedin.com/in/jenrickkibet/)
+[Request a Call](https://kibetkwambai.github.io/Jenrick-Kibet-Kwambai/#overview) · [GitHub](https://github.com/kibetKwambai) · [LinkedIn](https://www.linkedin.com/in/jenrickkibet/)
 
 ## Development
 
-Use Node.js 24. Run `npm ci`, then `npm run dev`.
+Built with React, TypeScript, Vite and Tailwind CSS.
 
-- `npm run lint`: TypeScript checks
-- `npm run build`: production build in `dist`
+Use Node.js 24:
 
-GitHub Actions publishes the website on every push to `main`.
+```bash
+npm ci
+npm run lint
+npm run build
+```
+
+GitHub Actions validates and publishes the website to GitHub Pages on every push to `main`.
