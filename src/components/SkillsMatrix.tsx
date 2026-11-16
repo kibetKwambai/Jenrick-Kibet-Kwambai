@@ -1,102 +1,78 @@
 import React, { useState } from 'react';
-import { 
-  Plane, 
-  Compass, 
-  Code2, 
-  ShieldCheck, 
-  Cpu
-} from 'lucide-react';
+import { Plane, Compass, Code2, ShieldCheck, Cpu, Check } from 'lucide-react';
 import { SKILL_CATEGORIES } from '../data/profileData';
 
 export const SkillsMatrix: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<number>(0);
+  const [activeTab, setActiveTab] = useState(0);
 
-  const getIcon = (name: string) => {
+  const iconFor = (name: string) => {
     switch (name) {
-      case 'Plane': return <Plane className="w-4 h-4 text-blue-700" />;
-      case 'Compass': return <Compass className="w-4 h-4 text-blue-700" />;
-      case 'Code2': return <Code2 className="w-4 h-4 text-blue-700" />;
-      case 'ShieldCheck': return <ShieldCheck className="w-4 h-4 text-blue-700" />;
-      default: return <Cpu className="w-4 h-4 text-blue-700" />;
+      case 'Plane': return Plane;
+      case 'Compass': return Compass;
+      case 'Code2': return Code2;
+      case 'ShieldCheck': return ShieldCheck;
+      default: return Cpu;
     }
   };
 
+  const active = SKILL_CATEGORIES[activeTab];
+
   return (
-    <section id="skills" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-[102.4rem] mx-auto border-t border-slate-200">
-      {/* Header */}
-      <div className="mb-8 sm:mb-10">
-        <span className="font-sans text-xs font-bold uppercase tracking-wider text-blue-700">
-          Core Competencies & Stack
-        </span>
-        <h2 className="font-heading text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 mt-1">
-          Project Delivery & Technical Expertise
-        </h2>
-        <p className="font-body text-sm sm:text-base text-slate-600 mt-2 max-w-2xl leading-relaxed">
-          Project coordination backed by hands-on data engineering, software development, systems validation and aviation operations.
-        </p>
-      </div>
-
-      {/* Domain Selection Tabs */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-8">
-        {SKILL_CATEGORIES.map((cat, idx) => (
-          <button
-            key={cat.title}
-            onClick={() => setActiveTab(idx)}
-            className={`p-4 rounded-xl text-left border transition-all cursor-pointer ${
-              activeTab === idx
-                ? 'bg-white border-blue-600 ring-2 ring-blue-600/20 shadow-xs'
-                : 'bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50/70'
-            }`}
-          >
-            <div className="flex items-center justify-between mb-2">
-              <div className="p-2 rounded-lg bg-blue-50 border border-blue-100">
-                {getIcon(cat.iconName)}
-              </div>
-              <span className="font-mono text-[10px] font-semibold text-slate-500">
-                {cat.skills.length} Areas
-              </span>
-            </div>
-            <div className="font-heading text-xs font-bold text-slate-900">
-              {cat.title}
-            </div>
-          </button>
-        ))}
-      </div>
-
-      {/* Active Tab Skills Grid */}
-      <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 shadow-[0_2px_8px_rgba(15,23,42,0.03)]">
-        <div className="flex items-center justify-between pb-6 mb-6 border-b border-slate-100">
-          <div>
-            <h3 className="font-heading text-lg font-bold text-slate-900">
-              {SKILL_CATEGORIES[activeTab].title}
-            </h3>
-            <p className="font-body text-xs sm:text-sm text-slate-600 mt-1">
-              {SKILL_CATEGORIES[activeTab].description}
-            </p>
-          </div>
+    <section id="skills" className="profile-section border-t border-slate-200">
+      <div className="profile-section__inner">
+        <div className="max-w-3xl">
+          <p className="section-kicker">Core expertise</p>
+          <h2 className="section-title mt-3">Project judgement backed by hands-on engineering.</h2>
+          <p className="mt-4 text-slate-600 leading-relaxed">
+            Select a domain to see the technical depth behind the project-management profile.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          {SKILL_CATEGORIES[activeTab].skills.map((skill, sIdx) => (
-            <div 
-              key={sIdx}
-              className="p-4 rounded-xl bg-slate-50 border border-slate-200/70 flex flex-col justify-between"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-1">
-                  <span className="font-sans font-semibold text-xs text-slate-900">
-                    {skill.name}
+        <div className="expertise-console mt-9">
+          <div className="expertise-console__nav" role="tablist" aria-label="Expertise domains">
+            {SKILL_CATEGORIES.map((category, index) => {
+              const Icon = iconFor(category.iconName);
+              const selected = activeTab === index;
+              return (
+                <button
+                  key={category.title}
+                  role="tab"
+                  aria-selected={selected}
+                  aria-controls="expertise-panel"
+                  onClick={() => setActiveTab(index)}
+                  className={selected ? 'expertise-tab expertise-tab--active' : 'expertise-tab'}
+                >
+                  <Icon className="h-5 w-5" />
+                  <span>
+                    <strong>{category.title}</strong>
+                    <small>{category.skills.length} capability areas</small>
                   </span>
-                  <span className="font-mono text-[10px] px-1.5 py-0.5 rounded bg-white text-blue-800 border border-slate-200 font-semibold">
-                    {skill.level}
-                  </span>
-                </div>
-                <span className="font-mono text-[11px] text-slate-600 mt-1 block">
-                  {skill.tag}
-                </span>
-              </div>
+                </button>
+              );
+            })}
+          </div>
+
+          <div id="expertise-panel" role="tabpanel" className="expertise-console__panel">
+            <div className="border-b border-slate-200 pb-5">
+              <h3 className="font-heading text-2xl font-bold text-slate-950">{active.title}</h3>
+              <p className="mt-2 text-sm sm:text-base text-slate-600 leading-relaxed max-w-3xl">{active.description}</p>
             </div>
-          ))}
+
+            <div className="expertise-list mt-2">
+              {active.skills.map(skill => (
+                <div key={skill.name} className="expertise-skill">
+                  <Check className="h-4 w-4 text-blue-700 shrink-0 mt-0.5" />
+                  <div className="min-w-0">
+                    <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                      <strong>{skill.name}</strong>
+                      <span>{skill.level}</span>
+                    </div>
+                    <p>{skill.tag}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
