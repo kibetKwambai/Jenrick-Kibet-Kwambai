@@ -30,7 +30,7 @@ const earlyExperience = EARLY_EXPERIENCE_IDS
 const selectedEducation = EDUCATION_LIST.filter(item =>
   item.degree.startsWith('Bachelor') ||
   item.degree.startsWith('Diploma') ||
-  item.degree.includes('Project Management')
+  item.degree === 'Certificate, Project Management'
 );
 
 const selectedCertifications = CERTIFICATIONS.filter(item =>
@@ -47,27 +47,29 @@ const selectedResearch = PUBLICATIONS.filter(item => item.kind === 'Research pap
 const coreCompetencies = [
   'Technical Project Management',
   'Data & Technology Delivery',
-  'Business Analysis',
-  'Requirements & Traceability',
-  'Scope / Schedule / Resource Planning',
+  'Business Analysis & Requirements',
+  'Project Planning & Roadmaps',
+  'Scope, Schedule & Resource Coordination',
   'Risk, Issues & Change Control',
   'Vendor & Technical Support Management',
-  'Testing, UAT & Acceptance Readiness',
+  'Stakeholder Communication',
+  'Testing, Acceptance & Operational Readiness',
   'Systems Integration',
-  'Quality & Compliance',
+  'Quality, Compliance & Audit Evidence',
+  'Executive & Technical Reporting',
   'AWS / Azure',
   'SQL / Python / ETL',
   'FSTD / QTG',
-  'Technical Documentation & Handover'
+  'Technical Documentation, Training & Handover'
 ];
 
 const impactMetrics = [
-  '50+ engineers coordinated',
-  '108+ engineering & technical projects',
-  '$600M+ vendor & technical-support portfolio',
-  '200+ pilots trained',
-  '10TB+ data engineered',
-  '99%+ FSTD uptime'
+  ['50+', 'Engineers coordinated'],
+  ['108+', 'Engineering & technical projects'],
+  ['$600M+', 'Vendor & technical-support portfolio'],
+  ['200+', 'Pilots trained'],
+  ['10TB+', 'Data engineered'],
+  ['99%+', 'FSTD uptime']
 ];
 
 const softwarePortfolio = [
@@ -77,7 +79,7 @@ const softwarePortfolio = [
   },
   {
     name: 'SimQTG Studio & EchoMorans',
-    description: 'FSTD qualification-test workflow, telemetry bridge, evidence capture and engineering validation tooling.'
+    description: 'FSTD qualification-test workflow, telemetry bridge, evidence capture and engineering validation.'
   },
   {
     name: 'SkyLink X-Plane Plugin',
@@ -85,7 +87,7 @@ const softwarePortfolio = [
   },
   {
     name: 'JenVibe MCP, Jenlink Timetable, Testimonial Bridge & Educore LMS',
-    description: 'WordPress, AI-connectivity, scheduling, quality-feedback and learning-management products.'
+    description: 'AI connectivity, scheduling, quality feedback and learning-management products.'
   }
 ];
 
@@ -110,41 +112,56 @@ const ResumeRole: React.FC<{
 
 export const ResumeDocument: React.FC = () => (
   <div className="cv-document">
-    <article className="cv-page">
+    <article className="cv-page cv-page--one">
       <header className="cv-header">
         <div>
           <h1>Jenrick Kibet Kwambai</h1>
           <p className="cv-positioning">Technical Project Manager | Data & Technology | Engineering Systems</p>
         </div>
-        <div className="cv-contact" aria-label="Contact information">
+        <address className="cv-contact" aria-label="Contact information">
           <span>{PROFILE_INFO.location}</span>
           <a href={'mailto:' + PROFILE_INFO.email}>{PROFILE_INFO.email}</a>
           <a href={PROFILE_INFO.linkedinUrl}>linkedin.com/in/jenrickkibet</a>
           <a href="https://kibetkwambai.github.io/Jenrick-Kibet-Kwambai/">kibetkwambai.github.io/Jenrick-Kibet-Kwambai</a>
-        </div>
+        </address>
       </header>
 
-      <section className="cv-section">
-        <h2>Executive Profile</h2>
-        <p className="cv-summary">
-          {EXECUTIVE_SUMMARY} At Zalego–STEPWISE, I built AWS/Azure ETL workflows handling 10TB+ of data, reduced processing time by 40%, and automated reporting that saved 20+ hours of manual work per week. My strongest delivery areas are requirements, governance, risk, vendor coordination, systems integration, testing, quality documentation and operational handover.
-        </p>
-      </section>
+      <div className="cv-body">
+        <section className="cv-section">
+          <h2>Executive Profile</h2>
+          <p className="cv-summary">
+            {EXECUTIVE_SUMMARY} At Zalego–STEPWISE, I built AWS/Azure ETL workflows handling 10TB+ of data, reduced processing time by 40%, and automated reporting that saved 20+ hours of manual work per week. I combine project governance, requirements, vendor coordination, systems integration, testing, quality documentation and operational handover with hands-on engineering depth.
+          </p>
+        </section>
 
-      <section className="cv-section">
-        <h2>Career Impact</h2>
-        <p className="cv-impact-line">{impactMetrics.join('  |  ')}</p>
-      </section>
+        <section className="cv-section">
+          <h2>Selected Career Impact</h2>
+          <div className="cv-impact-grid">
+            {impactMetrics.map(([value, label]) => (
+              <div className="cv-impact-item" key={label}>
+                <strong>{value}</strong>
+                <span>{label}</span>
+              </div>
+            ))}
+          </div>
+        </section>
 
-      <section className="cv-section">
-        <h2>Core Competencies</h2>
-        <p className="cv-keywords">{coreCompetencies.join(' · ')}</p>
-      </section>
+        <section className="cv-section">
+          <h2>Core Competencies</h2>
+          <p className="cv-keywords">{coreCompetencies.join(' · ')}</p>
+        </section>
 
-      <section className="cv-section cv-experience-section">
-        <h2>Professional Experience</h2>
-        {primaryExperience.map(item => item && <ResumeRole key={item.id} item={item} bullets={item.id === 'jeneration-software' ? 3 : 4} />)}
-      </section>
+        <section className="cv-section cv-experience-section">
+          <h2>Professional Experience</h2>
+          {primaryExperience.map(item => item && (
+            <ResumeRole
+              key={item.id}
+              item={item}
+              bullets={item.id === 'jeneration-software' ? 3 : item.id === 'zalego-stepwise' ? 3 : 4}
+            />
+          ))}
+        </section>
+      </div>
 
       <footer className="cv-footer">
         <span>Jenrick Kibet Kwambai · Executive Curriculum Vitae</span>
@@ -152,73 +169,79 @@ export const ResumeDocument: React.FC = () => (
       </footer>
     </article>
 
-    <article className="cv-page">
+    <article className="cv-page cv-page--two">
       <header className="cv-page-header">
         <span>Jenrick Kibet Kwambai</span>
-        <strong>Technical Project Management · Data · Engineering Systems</strong>
+        <strong>Technical Project Management · Data & Technology · Engineering Systems</strong>
       </header>
 
-      <section className="cv-section">
-        <h2>Additional Engineering & Commercial Experience</h2>
-        {secondaryExperience.map(item => item && <ResumeRole key={item.id} item={item} bullets={item.id === 'deltar-properties' ? 2 : 3} compact />)}
-      </section>
+      <div className="cv-body">
+        <section className="cv-section">
+          <h2>Additional Engineering & Commercial Experience</h2>
+          {secondaryExperience.map(item => item && (
+            <ResumeRole key={item.id} item={item} bullets={2} compact />
+          ))}
+        </section>
 
-      <section className="cv-section">
-        <h2>Earlier Technical Training & R&D</h2>
-        <div className="cv-early-list">
-          {earlyExperience.map(item => item && (
-            <div key={item.id} className="cv-early-item">
-              <div>
-                <strong>{item.role}</strong>
-                <span>{item.company}</span>
+        <section className="cv-section">
+          <h2>Earlier Technical Training & R&D</h2>
+          <div className="cv-early-list">
+            {earlyExperience.map(item => item && (
+              <div key={item.id} className="cv-early-item">
+                <div>
+                  <strong>{item.role}</strong>
+                  <span>{item.company}</span>
+                </div>
+                <span>{item.period}</span>
+                <p>{item.highlights[0]}</p>
               </div>
-              <span>{item.period}</span>
-              <p>{item.highlights[0]}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
 
-      <section className="cv-section">
-        <h2>Selected Software & Technical Products</h2>
-        <ul className="cv-product-list">
-          {softwarePortfolio.map(product => (
-            <li key={product.name}><strong>{product.name}:</strong> {product.description}</li>
-          ))}
-        </ul>
-      </section>
+        <section className="cv-section">
+          <h2>Selected Software & Technical Products</h2>
+          <ul className="cv-product-list">
+            {softwarePortfolio.map(product => (
+              <li key={product.name}><strong>{product.name}:</strong> {product.description}</li>
+            ))}
+          </ul>
+        </section>
 
-      <section className="cv-section">
-        <h2>Technical Stack & Methods</h2>
-        <p className="cv-keywords">
-          Project planning · Business analysis · Agile/Scrum · Vendor coordination · Testing & validation · FSTD qualification · QTG evidence · KCAA compliance · AWS · Azure · SQL · Python · ETL · C++ · C#/.NET · JavaScript/React · WordPress · X-Plane · Garmin G1000 NXi · Raspberry Pi · Arduino · MATLAB/Simulink · SOLIDWORKS
-        </p>
-      </section>
+        <section className="cv-section">
+          <h2>Technology & Delivery Environment</h2>
+          <p className="cv-keywords cv-keywords--compact">
+            Project planning · Business analysis · Agile/Scrum · Vendor coordination · Testing & validation · FSTD qualification · QTG evidence · KCAA compliance · AWS · Azure · SQL · Python · ETL · C++ · C#/.NET · JavaScript/React · WordPress · X-Plane · Garmin G1000 NXi · Raspberry Pi · Arduino · MATLAB/Simulink · SOLIDWORKS
+          </p>
+        </section>
 
-      <section className="cv-section">
-        <h2>Education & Professional Development</h2>
-        <div className="cv-qualification-list">
-          {selectedEducation.map(item => (
-            <div className="cv-qualification" key={item.degree}>
-              <div>
-                <strong>{item.degree}</strong>
-                <span>{item.institution}</span>
+        <section className="cv-section">
+          <h2>Education & Professional Development</h2>
+          <div className="cv-qualification-list">
+            {selectedEducation.map(item => (
+              <div className="cv-qualification" key={item.degree}>
+                <div>
+                  <strong>{item.degree}</strong>
+                  <span>{item.institution}</span>
+                </div>
+                <span>{item.period}</span>
               </div>
-              <span>{item.period}</span>
-            </div>
-          ))}
-        </div>
-        <p className="cv-certifications">
-          <strong>Selected certifications:</strong> {selectedCertifications.map(item => item.title + ' — ' + item.issuer + ' (' + item.year + ')').join(' · ')}
-        </p>
-      </section>
+            ))}
+          </div>
+          <div className="cv-certification-list">
+            {selectedCertifications.map(item => (
+              <p key={item.title}><strong>{item.title}</strong> · {item.issuer} · {item.year}</p>
+            ))}
+          </div>
+        </section>
 
-      <section className="cv-section">
-        <h2>Selected Research</h2>
-        <ul className="cv-research-list">
-          {selectedResearch.map(item => <li key={item.id}>{item.title}</li>)}
-        </ul>
-      </section>
+        <section className="cv-section cv-research-section">
+          <h2>Selected Research</h2>
+          <ul className="cv-research-list">
+            {selectedResearch.map(item => <li key={item.id}>{item.title}</li>)}
+          </ul>
+        </section>
+      </div>
 
       <footer className="cv-footer">
         <span>{PROFILE_INFO.email} · linkedin.com/in/jenrickkibet</span>
@@ -254,7 +277,7 @@ export const ResumeModal: React.FC<{isOpen: boolean; onClose: () => void}> = ({ 
       <div className="cv-toolbar">
         <div>
           <strong>Executive CV</strong>
-          <span>ATS-safe reading order · 2 pages · A4</span>
+          <span>ATS-optimised reading order · A4 · 2 pages</span>
         </div>
         <div className="cv-toolbar-actions">
           <button className="cv-print-button" onClick={() => window.print()}>
